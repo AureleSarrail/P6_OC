@@ -4,9 +4,17 @@
 
 {% block body %}
     <img src="{{ asset('Images/HomePic.jpg') }}" alt="" id="homePic">
-    <a href="#Tricks_Block"><img src="{{ asset('Images/ancre.png') }}" alt="" id="anchor"></a>
+
+    <a href="#Tricks_Block">
+        <img src="{{ asset('Images/ancre.png') }}" alt="" id="anchor">
+    </a>
 
     <div id="Tricks_Block">
+        {% for Trick in Tricks %}
+
+        <p>le nom de la trick n° {{ Trick.id }} est : {{ Trick.trickname }}</p>
+
+        {% endfor %}
     </div>
 
 {% endblock %}

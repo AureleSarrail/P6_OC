@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Trick;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
 /**
@@ -19,22 +20,35 @@ class TrickRepository extends ServiceEntityRepository
         parent::__construct($registry, Trick::class);
     }
 
+
+    /**
+     * @param int $page
+     * @return Trick[]
+     */
+    public function findTricksPerPage(int $page): array
+    {
+        // TODO
+
+        return $this->findAll();
+    }
+
     // /**
     //  * @return Trick[] Returns an array of Trick objects
     //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('t.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+
+//    public function findByExampleField($value)
+//    {
+//        return $this->createQueryBuilder('t')
+//            ->andWhere('t.exampleField = :val')
+//            ->setParameter('val', $value)
+//            ->orderBy('t.id', 'ASC')
+//            ->setMaxResults(10)
+//            ->setFirstResult(15*$page)
+//            ->getQuery()
+//            ->getResult()
+//        ;
+//    }
+
 
     /*
     public function findOneBySomeField($value): ?Trick
