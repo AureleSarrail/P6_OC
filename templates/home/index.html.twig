@@ -3,7 +3,10 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-    <img src="https://usskiandsnowboard.org/sites/default/files/images/static-pages/StaticPageHeader_1600x1200_Snowboard_Jamie_Action_1.jpg"
-         alt=""
-         id="homePic">
+    <img src="{{ asset('Images/HomePic.jpg') }}" alt="" id="homePic">
+    <a href="#Tricks_Block"><img src="{{ asset('Images/ancre.png') }}" alt="" id="anchor"></a>
+
+    <div id="Tricks_Block">
+    </div>
+
 {% endblock %}
