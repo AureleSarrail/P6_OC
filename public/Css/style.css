@@ -15,3 +15,24 @@ html
     bottom: 10px;
     left: 95vw;
 }
+
+body
+{
+    background-color: #383E3F;
+}
+
+.trickHome
+{
+    border: 1px solid lightslategray;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-top: 15px;
+    padding: 0px;
+    background-color: lightgrey;
+}
+
+.trickHome a
+{
+    text-decoration: none;
+    color: black;
+}
