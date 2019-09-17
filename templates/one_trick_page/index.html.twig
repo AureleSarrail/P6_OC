@@ -3,8 +3,10 @@
 {% block title %} {{ Trick.trickname }} {% endblock %}
 
 {% block body %}
-
-    <img src="{{ Trick.images.first.url }}" alt="" id="mainPic">
+    <div class="position-relative">
+        <img src="{{ Trick.images.first.url }}" alt="" id="mainPic">
+        <p class="position-absolute" style="bottom: 50%; left: 40%;" id="oneTrickName">{{ Trick.trickname }}</p>
+    </div>
 
     <div class="row">
         {% for Image in Trick.images %}
@@ -46,5 +48,12 @@
             <p class="col-lg-4 text-center" id="infoTrick">Mis à jour le {{ Trick.updatedAt | date('d/m/Y') }}</p>
         </div>
         <div class="col-lg-3"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <hr>
+        </div>
     </div>
 {% endblock %}
