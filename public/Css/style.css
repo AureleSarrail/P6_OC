@@ -36,3 +36,28 @@ body
     text-decoration: none;
     color: black;
 }
+
+#mainPic
+{
+    height: 30vh;
+    width: 95vw;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+#OneTrickPics
+{
+    margin-top: 15px;
+}
+
+#OneTrickVids
+{
+    margin-top: 15px;
+}
+
+#infoTrick
+{
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: lightgrey;
+}
