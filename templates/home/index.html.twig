@@ -14,7 +14,7 @@
             <div class="col-lg-2">
                 <div class="row trickHome">
                     <img src="{{ Trick.images.first.url }}" alt="" class="col-lg-12">
-                    <a href="#"><p class="col-lg-6">{{ Trick.trickname }}</p></a>
+                    <a href="{{ path('show', {'id': Trick.id}) }}"><p class="col-lg-6">{{ Trick.trickname }}</p></a>
                     <a href="#" class="col-lg-3"><img src="{{ asset('Images/pencil.png') }}" alt=""></a>
                     <a href="#" class="col-lg-3"><img src="{{ asset('Images/Trash.png') }}" alt=""></a>
                 </div>
