@@ -2,17 +2,17 @@
 
 namespace App\Repository;
 
-use App\Entity\Trick;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Persistence\ManagerRegistry;
+    use App\Entity\Trick;
+    use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+    use Doctrine\Common\Collections\ArrayCollection;
+    use Doctrine\Common\Persistence\ManagerRegistry;
 
-/**
- * @method Trick|null find($id, $lockMode = null, $lockVersion = null)
- * @method Trick|null findOneBy(array $criteria, array $orderBy = null)
- * @method Trick[]    findAll()
- * @method Trick[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
- */
+    /**
+     * @method Trick|null find($id, $lockMode = null, $lockVersion = null)
+     * @method Trick|null findOneBy(array $criteria, array $orderBy = null)
+     * @method Trick[]    findAll()
+     * @method Trick[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+     */
 class TrickRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
@@ -27,9 +27,26 @@ class TrickRepository extends ServiceEntityRepository
      */
     public function findTricksPerPage(int $page): array
     {
-        // TODO
+        if ($page==0) {
+            $max = 15;
+        }
+        else {
+            $max = $page*15;
+        }
 
-        return $this->findAll();
+        $min = $max-14;
+
+        $req = $this->createQueryBuilder('p')
+            ->where('p.id >= :min')
+            ->andWhere('p.id <= :max')
+            ->setParameters(array(
+                'min' => $min,
+                'max' => $max
+            ))
+            ->orderBy('p.id', 'ASC')
+            ->getQuery();
+
+        return $req->execute();
     }
 
     // /**
