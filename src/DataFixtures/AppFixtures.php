@@ -45,7 +45,7 @@ class AppFixtures extends Fixture
                 }
                 for ($l=0; $l<2; $l++) {
                     $video = new Video();
-                    $video->setUrl('https://www.youtube.com/watch?v=1TJ08caetkw')
+                    $video->setUrl('https://www.youtube.com/embed/1TJ08caetkw?rel=0')
                         ->setTrick($trick);
                     $manager->persist($video);
                 }

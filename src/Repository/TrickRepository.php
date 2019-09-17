@@ -49,6 +49,11 @@ class TrickRepository extends ServiceEntityRepository
         return $req->execute();
     }
 
+    public function oneTrickById($id)
+    {
+        return $req = $this->find($id);
+    }
+
     // /**
     //  * @return Trick[] Returns an array of Trick objects
     //  */
