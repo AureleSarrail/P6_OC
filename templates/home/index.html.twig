@@ -15,8 +15,8 @@
             <div class="row trickHome">
                 <img src="{{ Trick.images.first.url }}" alt="" class="col-lg-12">
                 <a href="{{ path('show', {'id': Trick.id}) }}"><p class="col-lg-6">{{ Trick.trickname }}</p></a>
-                <a href="{{ path('updateTrick') }}" class="col-lg-3"><img src="{{ asset('Images/pencil.png') }}" alt=""></a>
-                <a href="{{ path('deleteTrick') }}" class="col-lg-3"><img src="{{ asset('Images/Trash.png') }}" alt=""></a>
+                <a href="{{ path('updateTrick', {'id': Trick.id}) }}" class="col-lg-3"><img src="{{ asset('Images/pencil.png') }}" alt=""></a>
+                <a href="{{ path('deleteTrick', {'id': Trick.id}) }}" class="col-lg-3"><img src="{{ asset('Images/Trash.png') }}" alt=""></a>
             </div>
         </div>
 
