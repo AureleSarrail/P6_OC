@@ -3,18 +3,32 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <img src="{{ asset('Images/HomePic.jpg') }}" alt="" id="homePic">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <a href="#Tricks_Block">
+        <img src="{{ asset('Images/ancre.png') }}" alt="" id="anchor">
+</a>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/P6_OC/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/P6_OC/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
+<div id="Tricks_Block" class="row">
+    {% for trick in tricks %}
+        <div class="col-lg-2">
+            <div class="row trickHome">
+                <div class="col-lg-12">
+                    <img src="{{ trick.defaultImage}}" alt="" class="col-lg-12">
+                </div>
+                <div class="col-lg-6">
+                    <a href="{{ path('show', {'id': trick.id}) }}"><p class="col-lg-6">{{ trick.trickname }}</p></a>
+                </div>
+                <div class="col-lg-3">
+                    <a href="{{ path('updateTrick', {'id': trick.id}) }}" class="col-lg-3"><img src="{{ asset('Images/pencil.png') }}" alt=""></a>
+                </div>
+                <div class="col-lg-3">
+                    <a href="{{ path('deleteTrick', {'id': trick.id}) }}" class="col-lg-3"><img src="{{ asset('Images/Trash.png') }}" alt=""></a>
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
 </div>
+
 {% endblock %}
