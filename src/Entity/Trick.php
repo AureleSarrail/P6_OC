@@ -127,6 +127,15 @@ class Trick
         return $this->images;
     }
 
+    public function getDefaultImage()
+    {
+        if($this->getImages()->first()){
+            return $this->getImages()->first()->getUrl();
+        }else{
+            return "https://via.placeholder.com/150";
+        }
+    }
+
     public function addImage(Image $image): self
     {
         if (!$this->images->contains($image)) {
