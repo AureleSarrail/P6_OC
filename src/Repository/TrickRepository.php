@@ -20,9 +20,9 @@ class TrickRepository extends ServiceEntityRepository
     const NB_PRICK_PER_PAGE = 5;
 
     /**
-     * TrickRepository constructor.
+                * TrickRepository constructor.
      * @param ManagerRegistry $registry
-     */
+    */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Trick::class);

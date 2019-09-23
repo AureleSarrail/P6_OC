@@ -65,6 +65,8 @@ body
 #oneTrickName
 {
     color: white;
+    text-effect: engrave;
+    font-weight: bold;
 }
 
 hr

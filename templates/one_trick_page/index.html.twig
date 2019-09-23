@@ -7,7 +7,8 @@
         <img src="{{ trick.images.first.url }}" alt="" id="mainPic">
         <p class="position-absolute" style="bottom: 50%; left: 40%;" id="oneTrickName">{{ trick.trickname }}</p>
         <div id="userUpdateDeleteBlock">
-            <a href="{{ path('updateTrick', {'id': trick.id}) }}"><img src="{{ asset('Images/pencil.png') }}" alt=""></a>
+            <a href="{{ path('updateTrick', {'id': trick.id}) }}"><img src="{{ asset('Images/pencil.png') }}"
+                                                                       alt=""></a>
             <a href="{{ path('deleteTrick', {'id': trick.id}) }}"><img src="{{ asset('Images/Trash.png') }}" alt=""></a>
         </div>
     </div>
@@ -66,6 +67,44 @@
         <div class="col-lg-2"></div>
         <div class="col-lg-8">
             <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    {{ form_start(commentForm) }}
+
+                    {{ form(commentForm.content) }}
+
+                    {{ form_end(commentForm) }}
+                </div>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <hr>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            {% for comment in trick.comments %}
+
+                <div class="col-lg-12">
+                    <p>{{ comment.content }}</p>
+                </div>
+
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
