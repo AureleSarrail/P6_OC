@@ -2,56 +2,58 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Category;
-use App\Entity\Image;
-use App\Entity\Trick;
-use App\Entity\Video;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
+use Faker\Factory;
+use Faker\Generator;
 
-class AppFixtures extends Fixture
+abstract class AppFixtures extends Fixture
 {
+
+    /** @var ObjectManager */
+    private $manager;
+
+    protected $faker;
+
+    private $referencesIndex = [];
+
+    abstract protected function loadData(ObjectManager $manager);
+
     public function load(ObjectManager $manager)
     {
+        $this->manager = $manager;
+        $this->faker = Factory::create();
 
-        $faker = \Faker\Factory::create('fr_FR');
+        $this->loadData($manager);
+    }
 
-        //On crée 3 catégories
-        for ($i=0; $i < 3; $i++) {
-            $category = new Category();
-            $category->setTitle($faker->sentence())
-                ->setDescription($faker->paragraph());
+    protected function createMany(string $className, int $count, callable $factory)
+    {
+        for ($i = 0; $i < $count; $i++) {
+            $entity = new $className();
+            $factory($entity, $i);
+            $this->manager->persist($entity);
+            // store for usage later as App\Entity\ClassName_#COUNT#
+            $this->addReference($className . '_' . $i, $entity);
+        }
+    }
 
-            $manager->persist($category);
-
-            //on créé 5 tricks par catégories
-            for ($j=0; $j<5; $j++) {
-                $trick = new Trick();
-                $trick->setTrickname($faker->sentence())
-                    ->setDescription($faker->paragraph())
-                    ->setCreatedAt($faker->dateTimeBetween('-3 months'))
-                    ->setUpdatedAt(new \DateTime())
-                    ->setCategory($category);
-
-                $manager->persist($trick);
-
-                //on créée 5 images et 2 vidéos par tricks
-                for ($k=0; $k < 5; $k++) {
-                    $image = new Image();
-                    $image->setUrl($faker->imageUrl())
-                        ->setTrick($trick);
-
-                    $manager->persist($image);
-                }
-                for ($l=0; $l<2; $l++) {
-                    $video = new Video();
-                    $video->setUrl('https://www.youtube.com/embed/1TJ08caetkw?rel=0')
-                        ->setTrick($trick);
-                    $manager->persist($video);
+    protected function getRandomReference(string $className)
+    {
+        if (!isset($this->referencesIndex[$className])) {
+            $this->referencesIndex[$className] = [];
+            foreach ($this->referenceRepository->getReferences() as $key => $ref) {
+                if (strpos($key, $className . '_') === 0) {
+                    $this->referencesIndex[$className][] = $key;
                 }
             }
         }
-
-        $manager->flush();
+        if (empty($this->referencesIndex[$className])) {
+            throw new \Exception(sprintf('Cannot find any references for class "%s"', $className));
+        }
+        $randomReferenceKey = $this->faker->randomElement($this->referencesIndex[$className]);
+        return $this->getReference($randomReferenceKey);
     }
+
 }
+

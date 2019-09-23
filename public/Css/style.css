@@ -71,3 +71,19 @@ hr
 {
     color: white;
 }
+
+#userUpdateDeleteBlock
+{
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    background-color: white;
+    border: solid white 1px;
+    border-radius: 2px;
+    padding: 5px;
+}
+
+#userUpdateDeleteBlock img
+{
+    margin: 5px;
+}

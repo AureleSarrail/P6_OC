@@ -14,7 +14,7 @@ class OneTrickPageController extends AbstractController
     public function index($id, TrickRepository $repo)
     {
         return $this->render('one_trick_page/index.html.twig', [
-            'Trick' => $repo->oneTrickById($id)
+            'trick' => $repo->oneTrickById($id)
         ]);
     }
 }
