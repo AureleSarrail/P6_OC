@@ -15,7 +15,7 @@ class UpdateTrickController extends AbstractController
     {
 
         return $this->render('update_trick/index.html.twig', [
-            'Trick' => $trickRepo->oneTrickById($id)
+            'trick' => $trickRepo->oneTrickById($id)
         ]);
     }
 }
