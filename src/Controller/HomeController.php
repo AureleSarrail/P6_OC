@@ -22,8 +22,6 @@ class HomeController extends AbstractController
 
         if(count($tricks) == 0){
             $this->addFlash('danger', "La page n'existe pas");
-            $this->addFlash('danger', "La page n'existe pas 2");
-            $this->addFlash('success', "La page n'existe pas 2");
             return $this->redirectToRoute('home');
         }
 

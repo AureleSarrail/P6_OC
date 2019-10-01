@@ -19,7 +19,7 @@ class OneTrickPageController extends AbstractController
     /**
      * @Route("/show/{id}", name="show")
      */
-    public function index(Trick $trick, Request $request, ObjectManager $manager, UserRepository $repository)
+    public function index(Trick $trick, Request $request, ObjectManager $manager, UserRepository $user)
     {
 
 
