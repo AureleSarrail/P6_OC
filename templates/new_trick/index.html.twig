@@ -4,10 +4,21 @@
 
 {% block body %}
 
-    {{ form_start(trickForm) }}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="col-lg-6 offset-lg-3">
+                {{ form_start(trickForm) }}
 
-    {{ form_row(trickForm) }}
+                {{ form_row(trickForm) }}
 
-    {{ form_end(trickForm) }}
+                {{ form_end(trickForm) }}
+
+                <div class="col-lg-2 offset-lg-5">
+                    <button class="btn btn-primary" type="submit">Créer la trick</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
