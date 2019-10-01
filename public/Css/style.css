@@ -89,3 +89,11 @@ hr
 {
     margin: 5px;
 }
+
+#blockComment
+{
+    background-color: dodgerblue;
+    border: black solid 1px;
+    border-radius: 10px;
+    color: white;
+}

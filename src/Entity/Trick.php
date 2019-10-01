@@ -129,9 +129,9 @@ class Trick
 
     public function getDefaultImage()
     {
-        if($this->getImages()->first()){
+        if ($this->getImages()->first()) {
             return $this->getImages()->first()->getUrl();
-        }else{
+        } else {
             return "https://via.placeholder.com/150";
         }
     }

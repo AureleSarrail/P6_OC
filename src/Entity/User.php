@@ -41,11 +41,11 @@ class User
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="user", orphanRemoval=true)
      */
-    private $Comment;
+    private $comment;
 
     public function __construct()
     {
-        $this->Comment = new ArrayCollection();
+        $this->comment = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -106,13 +106,13 @@ class User
      */
     public function getComment(): Collection
     {
-        return $this->Comment;
+        return $this->comment;
     }
 
     public function addComment(Comment $comment): self
     {
-        if (!$this->Comment->contains($comment)) {
-            $this->Comment[] = $comment;
+        if (!$this->comment->contains($comment)) {
+            $this->comment[] = $comment;
             $comment->setUser($this);
         }
 
@@ -121,8 +121,8 @@ class User
 
     public function removeComment(Comment $comment): self
     {
-        if ($this->Comment->contains($comment)) {
-            $this->Comment->removeElement($comment);
+        if ($this->comment->contains($comment)) {
+            $this->comment->removeElement($comment);
             // set the owning side to null (unless already changed)
             if ($comment->getUser() === $this) {
                 $comment->setUser(null);
