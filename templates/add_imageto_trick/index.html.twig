@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AddImagetoTrickController!{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+
+            {{ form_start(addImage) }}
+
+            {{ form_row(addImage) }}
+
+            {{ form_end(addImage) }}
+
+        </div>
+    </div>
+
+{% endblock %}

@@ -36,7 +36,6 @@
 
                 {% endfor %}
 
-
                 {% for video in trick.videos %}
 
                     <div class="col-lg-2">
@@ -51,6 +50,16 @@
                     </div>
                 {% endfor %}
 
+            </div>
+
+            <div class="row">
+                <div class="col-lg-2 offset-lg-4">
+                    <a href="{{ path('add_image_to_trick', {'id': trick.id}) }}"><button class=" btn btn-primary">Ajouter une image</button></a>
+
+                </div>
+                <div class="col-lg-2">
+                    <a href="{{ path('add_video_to_trick', {'id': trick.id}) }}"><button class=" btn btn-primary">Ajouter une Vidéo</button></a>
+                </div>
             </div>
 
             <div class="row">
@@ -77,19 +86,5 @@
                 <div class="col-lg-3"></div>
             </div>
 
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-8">
-                    <hr>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-8">
-                    <hr>
-                </div>
-                <div class="col-lg-2"></div>
-            </div>
 
         {% endblock %}
