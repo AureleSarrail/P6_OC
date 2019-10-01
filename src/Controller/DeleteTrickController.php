@@ -2,18 +2,22 @@
 
 namespace App\Controller;
 
+use App\Entity\Trick;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DeleteTrickController extends AbstractController
 {
     /**
-     * @Route("/delete", name="deleteTrick")
+     * @Route("/delete/{id}", name="deleteTrick")
      */
-    public function index()
+    public function index(ObjectManager $manager, Trick $trick)
     {
-        return $this->render('delete_trick/index.html.twig', [
-            'controller_name' => 'DeleteTrickController',
-        ]);
+
+        $manager->remove($trick);
+        $manager->flush();
+
+        return $this->redirectToRoute('home');
     }
 }
