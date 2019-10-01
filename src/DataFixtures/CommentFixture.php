@@ -29,7 +29,7 @@ class CommentFixture extends AppFixtures implements DependentFixtureInterface
 
     public function getDependencies()
     {
-        return [UserFixture::class, TrickFixture::class];
+        return [TrickFixture::class];
     }
 
 

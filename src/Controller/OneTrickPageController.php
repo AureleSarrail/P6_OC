@@ -2,14 +2,10 @@
 
 namespace App\Controller;
 
-use App\Entity\Comment;
 use App\Entity\Trick;
 use App\Form\CommentFormType;
-use App\Repository\TrickRepository;
 use App\Repository\UserRepository;
-use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\ORM\EntityManager;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,7 +15,7 @@ class OneTrickPageController extends AbstractController
     /**
      * @Route("/show/{id}", name="show")
      */
-    public function index(Trick $trick, Request $request, ObjectManager $manager, UserRepository $repository)
+    public function index(Trick $trick, Request $request, EntityManagerInterface $manager, UserRepository $user)
     {
 
 

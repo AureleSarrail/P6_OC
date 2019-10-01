@@ -19,12 +19,14 @@
                 <div class="col-lg-6">
                     <a href="{{ path('show', {'id': trick.id}) }}"><p class="col-lg-6">{{ trick.trickname }}</p></a>
                 </div>
+                {% if (app.user) %}
                 <div class="col-lg-3">
                     <a href="{{ path('updateTrick', {'id': trick.id}) }}" class="col-lg-3"><img src="{{ asset('Images/pencil.png') }}" alt=""></a>
                 </div>
                 <div class="col-lg-3">
                     <a href="{{ path('deleteTrick', {'id': trick.id}) }}" class="col-lg-3"><img src="{{ asset('Images/Trash.png') }}" alt=""></a>
                 </div>
+                {% endif %}
             </div>
         </div>
 

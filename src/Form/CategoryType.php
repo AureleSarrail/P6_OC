@@ -2,28 +2,24 @@
 
 namespace App\Form;
 
-use App\Entity\Trick;
+use App\Entity\Category;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class TrickType extends AbstractType
+class CategoryType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('trickname', TextType::class)
-            ->add('description', TextareaType::class)
-            ->add('category', CategoryType::class)
+            ->add('title')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Trick::class,
+            'data_class' => Category::class,
         ]);
     }
 }
