@@ -43,7 +43,7 @@ class TrickRepository extends ServiceEntityRepository
         $req = $this->createQueryBuilder('p')
             ->setMaxResults(self::NB_PRICK_PER_PAGE)
             ->setFirstResult(($page - 1) * self::NB_PRICK_PER_PAGE)
-            ->orderBy('p.id', 'ASC')
+            ->orderBy('p.id', 'DESC')
             ->getQuery();
 
         return $req->execute();

@@ -3,22 +3,25 @@
         {% block title %} {{ trick.trickname }} {% endblock %}
 
         {% block body %}
-            <div class="position-relative">
-                <img src="{{ trick.images.first.url }}" alt="" id="mainPic">
-                <p class="position-absolute" style="bottom: 50%; left: 40%;" id="oneTrickName">{{ trick.trickname }}</p>
-                <div id="userUpdateDeleteBlock">
-                    <a href="{{ path('updateTrick', {'id': trick.id}) }}"><img src="{{ asset('Images/pencil.png') }}"
-                                                                               alt=""></a>
-                    <a href="{{ path('deleteTrick', {'id': trick.id}) }}"><img src="{{ asset('Images/Trash.png') }}"
-                                                                               alt=""></a>
-                </div>
-            </div>
+
 
             <div class="row">
                 {% for image in trick.images %}
 
                     {% if loop.first %}
-
+                        <div class="position-relative col-12">
+                            <img src="{{ trick.images.first.url }}" alt="" id="mainPic">
+                            <p class="position-absolute" style="bottom: 50%; left: 40%;"
+                               id="oneTrickName">{{ trick.trickname }}</p>
+                            <div id="userUpdateDeleteBlock">
+                                <a href="{{ path('update_trick', {'id': trick.id}) }}"><img
+                                            src="{{ asset('Images/pencil.png') }}"
+                                            alt=""></a>
+                                <a href="{{ path('deleteTrick', {'id': trick.id}) }}"><img
+                                            src="{{ asset('Images/Trash.png') }}"
+                                            alt=""></a>
+                            </div>
+                        </div>
                     {% else %}
 
                         <div class="col-lg-2">
@@ -34,23 +37,46 @@
 
                     {% endif %}
 
-                {% endfor %}
+                {% else %}
+                    <div class="position-relative col-12">
+                        <img src="{{ asset('Images/HomePic.jpg') }}" alt="" id="mainPic">
+                        <p class="position-absolute" style="bottom: 50%; left: 40%;"
+                           id="oneTrickName">{{ trick.trickname }}</p>
+                        <div id="userUpdateDeleteBlock">
 
+                        </div>
+                    </div>
+                {% endfor %}
 
                 {% for video in trick.videos %}
 
                     <div class="col-lg-2">
-                        <iframe src="{{ video.url }}" frameborder="0" class="col-lg-12" id="OneTrickVids"></iframe>
+                        {{ video.url|raw }}
                         <div class="row">
                             <div id="userUpdateDeleteBlock">
                                 <a href="#"><img src="{{ asset('Images/pencil.png') }}" alt=""></a>
-                                <a href="{{ path('image_remove', {'id': video.id}) }}"><img
+                                <a href="{{ path('video_remove', {'id': video.id}) }}"><img
                                             src="{{ asset('Images/Trash.png') }}" alt=""></a>
                             </div>
                         </div>
                     </div>
                 {% endfor %}
+            </div>
 
+            </div>
+
+            <div class="row">
+                <div class="col-lg-2 offset-lg-4">
+                    <a href="{{ path('add_image_to_trick', {'id': trick.id}) }}">
+                        <button class=" btn btn-primary">Ajouter une image</button>
+                    </a>
+
+                </div>
+                <div class="col-lg-2">
+                    <a href="{{ path('add_video_to_trick', {'id': trick.id}) }}">
+                        <button class=" btn btn-primary">Ajouter une Vidéo</button>
+                    </a>
+                </div>
             </div>
 
             <div class="row">
@@ -77,19 +103,5 @@
                 <div class="col-lg-3"></div>
             </div>
 
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-8">
-                    <hr>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-8">
-                    <hr>
-                </div>
-                <div class="col-lg-2"></div>
-            </div>
 
         {% endblock %}

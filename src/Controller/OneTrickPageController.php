@@ -13,7 +13,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class OneTrickPageController extends AbstractController
 {
     /**
-     * @Route("/show/{id}", name="show")
+     * @Route("/show/{id}", name="show_one_trick")
+     * @param Trick $trick
+     * @param Request $request
+     * @param EntityManagerInterface $manager
+     * @param UserRepository $user
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws \Exception
      */
     public function index(Trick $trick, Request $request, EntityManagerInterface $manager, UserRepository $user)
     {
@@ -29,7 +35,7 @@ class OneTrickPageController extends AbstractController
 
             $comment->setTrick($trick)
                 ->setCreatedAt(new \DateTime())
-                ->setUser($repository->find(rand(1,5)));
+                ->setUser($user->find(rand(1, 5)));
 
             //$this->getUser()
 

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AddVideotoTrickController!{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+
+            {{ form_start(addVideo) }}
+
+            {{ form_row(addVideo) }}
+
+            <input type="submit" value="Envoyer la Vidéo" class="btn btn-primary">
+
+            {{ form_end(addVideo) }}
+
+        </div>
+    </div>
+{% endblock %}

@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class UpdateTrickController extends AbstractController
 {
     /**
-     * @Route("/update/{id}", name="updateTrick")
+     * @Route("/update/{id}", name="update_trick")
      */
     public function index($id, TrickRepository $trickRepo)
     {

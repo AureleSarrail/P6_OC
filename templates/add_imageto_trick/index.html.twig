@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AddImagetoTrickController!{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+
+            <form action="{{ path('add_image_to_trick', {'id': trick.id}) }}" method="post" enctype="multipart/form-data">
+
+                {{ form_widget(addImage) }}
+
+                <input type="submit" value="Envoyer l'image" class="btn btn-primary">
+
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
