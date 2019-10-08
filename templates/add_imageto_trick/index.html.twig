@@ -7,12 +7,13 @@
     <div class="row">
         <div class="col-lg-6 offset-lg-3">
 
-            {{ form_start(addImage) }}
+            <form action="{{ path('add_image_to_trick', {'id': trick.id}) }}" method="post" enctype="multipart/form-data">
 
-            {{ form_row(addImage) }}
+                {{ form_widget(addImage) }}
 
-            {{ form_end(addImage) }}
+                <input type="submit" value="Envoyer l'image" class="btn btn-primary">
 
+            </form>
         </div>
     </div>
 

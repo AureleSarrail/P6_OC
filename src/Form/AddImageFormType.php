@@ -13,18 +13,13 @@ class AddImageFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('url', FileType::class, array(
-                'attr' => array(
-                    'multiple' => 'multiple'
-                )
-            ))
+            ->add('file', FileType::class, [
+                'constraints' => [
+                    new \Symfony\Component\Validator\Constraints\Image()
+                ]
+            ])
         ;
     }
 
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults([
-            'data_class' => Image::class,
-        ]);
-    }
+
 }

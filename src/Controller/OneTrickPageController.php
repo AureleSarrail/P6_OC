@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class OneTrickPageController extends AbstractController
 {
     /**
-     * @Route("/show/{id}", name="show")
+     * @Route("/show/{id}", name="show_one_trick")
      * @param Trick $trick
      * @param Request $request
      * @param EntityManagerInterface $manager
