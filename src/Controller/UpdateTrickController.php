@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Form\TrickType;
 use App\Repository\TrickRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,8 +15,11 @@ class UpdateTrickController extends AbstractController
     public function index($id, TrickRepository $trickRepo)
     {
 
+        $trickForm = $this->createForm(TrickType::class);
+
         return $this->render('update_trick/index.html.twig', [
-            'trick' => $trickRepo->oneTrickById($id)
+            'trick' => $trickRepo->oneTrickById($id),
+            'trickForm' => $trickForm->createView()
         ]);
     }
 }

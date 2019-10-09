@@ -1,32 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="94dd3c4e-b60c-4e9b-900f-3e9998c35fb8" name="Default Changelist" comment="Creating some new type (addImage and addVideo)&#10;Creating some new Controller (addImageToTrick and Video)&#10;Creating some views for them&#10;Now i will work for the upload system and make the functionnality to add images and videos to an existing trick.">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Security/UploaderHelper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/P6_OC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/P6_OC.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/symfony2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
+    <list default="true" id="94dd3c4e-b60c-4e9b-900f-3e9998c35fb8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AddImagetoTrickController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AddImagetoTrickController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AddVideotoTrickController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AddVideotoTrickController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ImageRemoveController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ImageRemoveController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/NewTrickController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/NewTrickController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/OneTrickPageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/OneTrickPageController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/UpdateTrickController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UpdateTrickController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Trick.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Trick.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/AddImageFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/AddImageFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/AddVideoFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/AddVideoFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/TrickType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/TrickType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/TrickRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/TrickRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/add_imageto_trick/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/add_imageto_trick/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/add_videoto_trick/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/add_videoto_trick/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/new_trick/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/new_trick/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/one_trick_page/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/one_trick_page/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/update_trick/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/update_trick/index.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,23 +34,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/update_trick/index.html.twig">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/TrickElementUpdateController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1513">
-              <caret line="89" column="20" selection-start-line="89" selection-start-column="20" selection-end-line="89" selection-end-column="20" />
+            <state relative-caret-position="309">
+              <caret line="30" column="36" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
               <folding>
-                <element signature="e#2810#2822#0#Twig" expanded="true" />
+                <element signature="e#34#55#0#PHP" expanded="true" />
+                <element signature="e#930#944#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/UpdateTrickController.php">
+        <entry file="file://$PROJECT_DIR$/templates/trick_element_update/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+            <state relative-caret-position="119">
+              <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding>
+                <element signature="e#12#26#0#Twig" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -81,8 +62,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/OneTrickPageController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="42" column="30" lean-forward="true" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
+            <state relative-caret-position="374">
+              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
               <folding>
                 <element signature="e#34#55#0#PHP" expanded="true" />
               </folding>
@@ -91,70 +72,35 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/AddImagetoTrickController.php">
+        <entry file="file://$PROJECT_DIR$/src/Form/TrickType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="30" column="7" lean-forward="true" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+            <state relative-caret-position="-8">
+              <caret line="9" column="62" lean-forward="true" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/UpdateTrickController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="57" lean-forward="true" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="57" />
               <folding>
-                <element signature="e#34#55#0#PHP" expanded="true" />
+                <element signature="e#34#57#0#PHP" expanded="true" />
+                <element signature="e#404#434#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Security/UploaderHelper.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="48" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/services.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Repository/TrickRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="52" column="17" lean-forward="true" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Form/AddImageFormType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/one_trick_page/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="24" lean-forward="true" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+            <state relative-caret-position="476">
+              <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
               <folding>
                 <element signature="e#430#442#0#Twig" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Form/AddVideoFormType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -165,7 +111,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="ReworkUserAndAuth" />
+        <entry key="$PROJECT_DIR$" value="NewTrick" />
       </map>
     </option>
   </component>
@@ -196,7 +142,6 @@
         <option value="$PROJECT_DIR$/src/Controller/DeleteTrickController.php" />
         <option value="$PROJECT_DIR$/src/Security/AppCustomAuthenticator.php" />
         <option value="$PROJECT_DIR$/src/Controller/OneTrickPageController.php" />
-        <option value="$PROJECT_DIR$/src/Controller/UpdateTrickController.php" />
         <option value="$PROJECT_DIR$/src/Form/TrickType.php" />
         <option value="$PROJECT_DIR$/templates/new_trick/index.html.twig" />
         <option value="$PROJECT_DIR$/templates/home/index.html.twig" />
@@ -214,9 +159,12 @@
         <option value="$PROJECT_DIR$/src/Controller/ImageRemoveController.php" />
         <option value="$PROJECT_DIR$/src/Repository/TrickRepository.php" />
         <option value="$PROJECT_DIR$/src/Form/AddVideoFormType.php" />
-        <option value="$PROJECT_DIR$/templates/update_trick/index.html.twig" />
         <option value="$PROJECT_DIR$/config/services.yaml" />
         <option value="$PROJECT_DIR$/templates/one_trick_page/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/UpdateTrickController.php" />
+        <option value="$PROJECT_DIR$/templates/update_trick/index.html.twig" />
+        <option value="$PROJECT_DIR$/templates/trick_element_update/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/TrickElementUpdateController.php" />
       </list>
     </option>
   </component>
@@ -358,17 +306,6 @@
             <path>
               <item name="P6_OC" type="b2602c69:ProjectViewProjectNode" />
               <item name="P6_OC" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="P6_OC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="P6_OC" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="uploads" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="P6_OC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="P6_OC" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -381,37 +318,7 @@
               <item name="P6_OC" type="b2602c69:ProjectViewProjectNode" />
               <item name="P6_OC" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="DataFixtures" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="P6_OC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="P6_OC" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="P6_OC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="P6_OC" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Form" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="P6_OC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="P6_OC" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="P6_OC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="P6_OC" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Repository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="P6_OC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="P6_OC" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Security" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="P6_OC" type="b2602c69:ProjectViewProjectNode" />
@@ -465,6 +372,12 @@
               <item name="P6_OC" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="security" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="P6_OC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="P6_OC" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="trick_element_update" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="P6_OC" type="b2602c69:ProjectViewProjectNode" />
@@ -533,7 +446,8 @@
       <workItem from="1569796843170" duration="3000" />
       <workItem from="1569921692774" duration="15523000" />
       <workItem from="1570016787458" duration="4821000" />
-      <workItem from="1570535580664" duration="14329000" />
+      <workItem from="1570535580664" duration="15037000" />
+      <workItem from="1570615897379" duration="3602000" />
     </task>
     <task id="LOCAL-00001" summary="First commit with symfony installed">
       <created>1568128516282</created>
@@ -717,17 +631,24 @@
       <option name="project" value="LOCAL" />
       <updated>1569936942352</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Upload system is working fine.&#10;User can now upload images directly from their computer.&#10;Add videos is now possible too just by copying the iframe given.&#10;Add a test on video in order to have just Youtube,Daylimotion or Vimeo supported.">
+      <created>1570550409396</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1570550409396</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102112000" />
+    <option name="totallyTimeSpent" value="106422000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49380806" visible="true" weight="0.27665246" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49380806" visible="true" weight="0.27985075" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -752,7 +673,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Base template is ready.&#10;it's just a simple header, mostly pointing on nothing for now" />
     <MESSAGE value="first commit for this branch" />
     <MESSAGE value="Entities are created&#10;All have been created by the symfony maker." />
     <MESSAGE value="first commit of this branch" />
@@ -777,23 +697,10 @@
     <MESSAGE value="Authentification is working and now the functionality will display correctly if the user is logged or not" />
     <MESSAGE value="Creating a new trick&#10;I'm creating a newtricktype and newTrickController&#10;It is working&#10;Now i must work on an upload system for images and videos" />
     <MESSAGE value="Creating some new type (addImage and addVideo)&#10;Creating some new Controller (addImageToTrick and Video)&#10;Creating some views for them&#10;Now i will work for the upload system and make the functionnality to add images and videos to an existing trick." />
-    <option name="LAST_COMMIT_MESSAGE" value="Creating some new type (addImage and addVideo)&#10;Creating some new Controller (addImageToTrick and Video)&#10;Creating some views for them&#10;Now i will work for the upload system and make the functionnality to add images and videos to an existing trick." />
+    <MESSAGE value="Upload system is working fine.&#10;User can now upload images directly from their computer.&#10;Add videos is now possible too just by copying the iframe given.&#10;Add a test on video in order to have just Youtube,Daylimotion or Vimeo supported." />
+    <option name="LAST_COMMIT_MESSAGE" value="Upload system is working fine.&#10;User can now upload images directly from their computer.&#10;Add videos is now possible too just by copying the iframe given.&#10;Add a test on video in order to have just Youtube,Daylimotion or Vimeo supported." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/packages/twig.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/ImageRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="26" column="10" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Repository/CommentRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="564">
@@ -978,16 +885,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/TrickType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="22" column="53" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
-          <folding>
-            <element signature="e#28#52#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Trick.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1054">
@@ -1141,47 +1038,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/TrickRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="52" column="17" lean-forward="true" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/OneTrickPageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="42" column="30" lean-forward="true" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
-          <folding>
-            <element signature="e#34#55#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/AddVideoFormType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/UpdateTrickController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/update_trick/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1513">
-          <caret line="89" column="20" selection-start-line="89" selection-start-column="20" selection-end-line="89" selection-end-column="20" />
-          <folding>
-            <element signature="e#2810#2822#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Form/AddImageFormType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -1189,20 +1045,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AddImagetoTrickController.php">
+    <entry file="file://$PROJECT_DIR$/src/Repository/TrickRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="30" column="7" lean-forward="true" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
-          <folding>
-            <element signature="e#34#55#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="510">
+          <caret line="52" column="17" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/services.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
-          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -1213,12 +1066,89 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AddImagetoTrickController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="30" column="7" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+          <folding>
+            <element signature="e#34#55#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/AddVideoFormType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/update_trick/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="74" column="29" lean-forward="true" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
+          <folding>
+            <element signature="e#911#923#0#Twig" expanded="true" />
+            <element signature="e#3736#3756#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/one_trick_page/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="24" lean-forward="true" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+        <state relative-caret-position="476">
+          <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
           <folding>
             <element signature="e#430#442#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/TrickType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="9" column="62" lean-forward="true" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/OneTrickPageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="e#34#55#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/trick_element_update/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="e#12#26#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/UpdateTrickController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="57" lean-forward="true" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="57" />
+          <folding>
+            <element signature="e#34#57#0#PHP" expanded="true" />
+            <element signature="e#404#434#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/TrickElementUpdateController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="30" column="36" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
+          <folding>
+            <element signature="e#34#55#0#PHP" expanded="true" />
+            <element signature="e#930#944#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
