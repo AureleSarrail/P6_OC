@@ -3,9 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Trick;
-use App\Entity\Video;
 use App\Form\AddVideoFormType;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,7 +19,7 @@ class AddVideotoTrickController extends AbstractController
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function index(Trick $trick, AddVideoFormType $addVideo,EntityManagerInterface $em,Request $request)
+    public function index(Trick $trick, AddVideoFormType $addVideo, EntityManagerInterface $em, Request $request)
     {
 
         $addVideo = $this->createForm(AddVideoFormType::class);
@@ -31,22 +29,34 @@ class AddVideotoTrickController extends AbstractController
         if ($addVideo->isSubmitted() && $addVideo->isValid()) {
             $video = $addVideo->getData();
 
-            if (strpos($video->getUrl(),'youtube') or strpos($video->getUrl(),'dailymotion') or strpos($video->getUrl(),'vimeo')) {
+            //on fait un test si la plateforme est supportée
+            if (strpos($video->getUrl(), 'youtube') or strpos($video->getUrl(), 'dailymotion') or strpos($video->getUrl(), 'vimeo')) {
 
+                //On ne récupère que le contenu de src de la iframe donnée par l'utilisateur
+                $debutSrc = strpos($video->getUrl(), "http");
+                $finSrc = strpos($video->getUrl(), "\"", $debutSrc);
+                $length = $finSrc - $debutSrc;
+                $url = substr($video->getUrl(), $debutSrc, $length);
+
+                //on remplace l'url par celle obtenue
+                $video->setUrl($url);
+
+                //on l'ajoute à la trick
                 $trick->addVideo($video);
 
+                //intégration
                 $em->persist($video);
                 $em->flush();
 
+                //message si ok
                 $this->addFlash('success', 'Vidéo bien ajoutée');
 
+                //redirection vers la page de mise à jour de la trick
                 return $this->redirectToRoute('update_trick', [
                     'id' => $trick->getId()
                 ]);
-            }
-            else
-            {
-                $this->addFlash('warning', 'La plateforme n\'est pas supportée !' );
+            } else {
+                $this->addFlash('warning', 'La plateforme n\'est pas supportée !');
             }
         }
 
