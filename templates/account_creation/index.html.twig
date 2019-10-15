@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AccountCreationController!{% endblock %}
+
+{% block body %}
+
+    <div class="col-lg-6 offset-lg-3 text-center">
+
+        <h1>Créez votre compte</h1>
+
+        {{ form_start(userForm) }}
+
+        {{ form_label(userForm.username, 'Votre pseudo') }}
+
+        {{ form_widget(userForm.username) }}
+
+        {{ form_label(userForm.password, 'Votre mot de passe') }}
+
+        {{ form_widget(userForm.password) }}
+
+        {{ form_label(userForm.controlPass, 'Retapez votre mot de passe') }}
+
+        {{ form_widget(userForm.controlPass) }}
+
+        <input type="submit" class="btn btn-primary" value="Créer votre compte">
+
+        {{ form_end(userForm) }}
+    </div>
+
+{% endblock %}
