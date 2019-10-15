@@ -23,9 +23,6 @@ class TrickElementUpdateController extends AbstractController
 
         if ($trickForm->isSubmitted() && $trickForm->isValid())
         {
-            $trick = $trickForm->getData();
-
-            $em->persist($trick);
             $em->flush();
 
             $this->addFlash('success','La tricks a bien été mise à jour');
@@ -34,6 +31,7 @@ class TrickElementUpdateController extends AbstractController
                 'id' => $trick->getId()
             ]);
         }
+
 
         return $this->render('trick_element_update/index.html.twig', [
             'trickForm' => $trickForm->createView()

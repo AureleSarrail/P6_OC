@@ -15,12 +15,15 @@
                             {% else %}
                                 <img src="{{ asset('uploads/' ~ trick.images.first.url) }}" alt="" id="mainPic">
                             {% endif %}
-                            <p class="position-absolute" style="bottom: 50%; left: 40%;" id="oneTrickName">{{ trick.trickname }}</p>
+                            <p class="position-absolute" style="bottom: 50%; left: 40%;"
+                               id="oneTrickName">{{ trick.trickname }}</p>
                             {% if (app.user) %}
                                 <div id="userUpdateDeleteBlock">
-                                    <a href="{{ path('update_trick', {'id': trick.id}) }}"><img src="{{ asset('Images/pencil.png') }}"
-                                                                                                alt=""></a>
-                                    <a href="{{ path('deleteTrick', {'id': trick.id}) }}"><img src="{{ asset('Images/Trash.png') }}" alt=""></a>
+                                    <a href="{{ path('image_update', {'id': trick.images.first.id}) }}"><img
+                                                src="{{ asset('Images/pencil.png') }}"
+                                                alt=""></a>
+                                    <a href="{{ path('deleteTrick', {'id': trick.id}) }}"><img
+                                                src="{{ asset('Images/Trash.png') }}" alt=""></a>
                                 </div>
                             {% endif %}
                         </div>
@@ -35,9 +38,12 @@
                             {% endif %}
                             <div class="row">
                                 <div id="userUpdateDeleteBlock">
-                                    <a href="#"><img src="{{ asset('Images/pencil.png') }}" alt=""></a>
-                                    <a href="{{ path('image_remove', {'id': image.id}) }}"><img
-                                                src="{{ asset('Images/Trash.png') }}" alt=""></a>
+                                    <a href="{{ path('image_update', {'id': image.id}) }}">
+                                        <img src="{{ asset('Images/pencil.png') }}" alt="">
+                                    </a>
+                                    <a href="{{ path('image_remove', {'id': image.id}) }}">
+                                        <img src="{{ asset('Images/Trash.png') }}" alt="">
+                                    </a>
                                 </div>
                             </div>
                         </div>
