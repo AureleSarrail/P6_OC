@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TrickElementUpdateController!{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="offset-lg-3 col-lg-6 text-center">
+            {{ form_start(trickForm) }}
+
+            {{ form_label(trickForm.trickname, 'Le nom de la tricks') }}
+
+            {{ form_widget(trickForm.trickname) }}
+
+            {{ form_label(trickForm.description, 'La description de la tricks') }}
+
+            {{ form_widget(trickForm.description) }}
+
+            {{ form_label(trickForm.category, 'La catégorie de la tricks') }}
+
+            {{ form_widget(trickForm.category) }}
+
+            <input type="submit" class="btn btn-primary" value="Mettre à jour">
+
+            {{ form_end(trickForm) }}
+        </div>
+    </div>
+
+{% endblock %}

@@ -10,27 +10,40 @@
 
                     {% if loop.first %}
                         <div class="position-relative col-12">
-                            <img src="{{ trick.images.first.url }}" alt="" id="mainPic">
+                            {% if (trick.images.first.url) starts with 'http' %}
+                                <img src="{{ trick.images.first.url }}" alt="" id="mainPic">
+                            {% else %}
+                                <img src="{{ asset('uploads/' ~ trick.images.first.url) }}" alt="" id="mainPic">
+                            {% endif %}
                             <p class="position-absolute" style="bottom: 50%; left: 40%;"
                                id="oneTrickName">{{ trick.trickname }}</p>
-                            <div id="userUpdateDeleteBlock">
-                                <a href="{{ path('update_trick', {'id': trick.id}) }}"><img
-                                            src="{{ asset('Images/pencil.png') }}"
-                                            alt=""></a>
-                                <a href="{{ path('deleteTrick', {'id': trick.id}) }}"><img
-                                            src="{{ asset('Images/Trash.png') }}"
-                                            alt=""></a>
-                            </div>
+                            {% if (app.user) %}
+                                <div id="userUpdateDeleteBlock">
+                                    <a href="{{ path('image_update', {'id': trick.images.first.id}) }}"><img
+                                                src="{{ asset('Images/pencil.png') }}"
+                                                alt=""></a>
+                                    <a href="{{ path('deleteTrick', {'id': trick.id}) }}"><img
+                                                src="{{ asset('Images/Trash.png') }}" alt=""></a>
+                                </div>
+                            {% endif %}
                         </div>
                     {% else %}
 
                         <div class="col-lg-2">
-                            <img src="{{ image.url }}" alt="" class="col-lg-12" id="OneTrickPics">
+                            {% if (image.url) starts with 'http' %}
+                                <img src="{{ image.url }}" alt="" class="col-lg-12" id="OneTrickPics">
+                            {% else %}
+                                <img src="{{ asset('uploads/' ~ image.url) }}" alt="" class="col-lg-12"
+                                     id="OneTrickPics">
+                            {% endif %}
                             <div class="row">
                                 <div id="userUpdateDeleteBlock">
-                                    <a href="#"><img src="{{ asset('Images/pencil.png') }}" alt=""></a>
-                                    <a href="{{ path('image_remove', {'id': image.id}) }}"><img
-                                                src="{{ asset('Images/Trash.png') }}" alt=""></a>
+                                    <a href="{{ path('image_update', {'id': image.id}) }}">
+                                        <img src="{{ asset('Images/pencil.png') }}" alt="">
+                                    </a>
+                                    <a href="{{ path('image_remove', {'id': image.id}) }}">
+                                        <img src="{{ asset('Images/Trash.png') }}" alt="">
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -66,7 +79,12 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-2 offset-lg-4">
+                <div class="offset-lg-3 col-lg-2">
+                    <a href="{{ path('trick_element_update', {'id': trick.id}) }}">
+                        <button class=" btn btn-primary">Mettre à jour</button>
+                    </a>
+                </div>
+                <div class="col-lg-2">
                     <a href="{{ path('add_image_to_trick', {'id': trick.id}) }}">
                         <button class=" btn btn-primary">Ajouter une image</button>
                     </a>

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ImageUpdateController!{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="offset-lg-3 col-lg-6">
+            {{ form_start(imageForm) }}
+
+            {{ form_label(imageForm, 'Votre nouvelle image') }}
+
+            {{ form_widget(imageForm) }}
+
+            <input type="submit" class="btn btn-primary" value="Mettre à jour">
+
+            {{ form_end(imageForm) }}
+        </div>
+    </div>
+
+{% endblock %}
