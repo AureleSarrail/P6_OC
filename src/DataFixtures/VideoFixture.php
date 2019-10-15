@@ -14,7 +14,7 @@ class VideoFixture extends AppFixtures implements DependentFixtureInterface
     {
 
         $this->createMany(Video::class,30,function(Video $video) {
-            $url = 'https://www.youtube.com/embed/1TJ08caetkw?rel=0';
+            $url = 'https://www.youtube.com/embed/1TJ08caetkw';
 
             $video->setUrl($url)
                 ->setTrick($this->getRandomReference(Trick::class));

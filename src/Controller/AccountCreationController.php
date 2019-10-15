@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,17 +33,18 @@ class AccountCreationController extends AbstractController
             if ($newUser['password'] == $newUser['controlPass']) {
                 $user = new User();
                 $user->setUsername($newUser['username'])
-                    ->setPassword($encoder->encodePassword($user,$newUser['password']));
+                    ->setMail($newUser['mail'])
+                    ->setPassword($encoder->encodePassword($user, $newUser['password']));
 
                 $em->persist($user);
-                $em-> flush();
+                $em->flush();
 
                 $this->addFlash('success', 'Votre compte a été créé avec succés');
 
                 return $this->redirectToRoute('app_login');
 
             } else {
-                $this->addFlash('warning','Les mots de passes de sont pas identiques !');
+                $this->addFlash('warning', 'Les mots de passes de sont pas identiques !');
             }
         }
 
