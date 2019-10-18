@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AccountCreationController!{% endblock %}
+
+{% block body %}
+
+    <div class="col-lg-6 offset-lg-3 text-center">
+
+        <h1>Créez votre compte</h1>
+
+        {{ form_start(userForm) }}
+
+        {{ form_label(userForm.username, ' ') }}
+
+        {{ form_widget(userForm.username, {'attr': {'placeholder': 'Votre Pseudo'}}) }}
+
+        {{ form_label(userForm.username, ' ') }}
+
+        {{ form_widget(userForm.mail, {'attr': {'placeholder': 'Votre Email'}}) }}
+
+        {{ form_label(userForm.username, ' ') }}
+
+        {{ form_widget(userForm.password, {'attr': {'placeholder': 'Votre mot de passe'}}) }}
+
+        {{ form_label(userForm.username, ' ') }}
+
+        {{ form_widget(userForm.controlPass, {'attr': {'placeholder': 'Retapez votre mot de passe'}}) }}
+
+        <br>
+
+        <input type="submit" class="btn btn-primary" value="Créer votre compte">
+
+        {{ form_end(userForm) }}
+    </div>
+
+{% endblock %}

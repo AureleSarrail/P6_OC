@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ResetPasswordController!{% endblock %}
+
+{% block body %}
+
+    <div class="col-lg-6 offset-lg-3 text-center">
+
+        {{ form_start(form) }}
+
+        {{ form_widget(form.password, {'attr': {'placeholder': 'Votre nouveau mot de passe'}}) }}
+
+        {{ form_widget(form.confirmPassword, {'attr': {'placeholder': 'Confirmation du mot de passe'}}) }}
+
+        <input type="submit" class="btn btn-primary" value="Changer le Mot de Passe">
+
+        {{ form_end(form) }}
+
+    </div>
+
+{% endblock %}

@@ -23,6 +23,11 @@ class User implements UserInterface
     private $username;
 
     /**
+     * @ORM\Column(type="string", length=180, unique=true)
+     */
+    private $mail;
+
+    /**
      * @ORM\Column(type="json")
      */
     private $roles = [];
@@ -32,6 +37,11 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\Column(type="string", length=180, unique=true)
+     */
+    private $resetToken;
 
     public function getId(): ?int
     {
@@ -87,6 +97,38 @@ class User implements UserInterface
         $this->password = $password;
 
         return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getMail(): string
+    {
+        return (string) $this->mail;
+    }
+
+    public function setMail(string $mail): self
+    {
+        $this->mail = $mail;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getResetToken(): string
+    {
+        return $this->resetToken;
+    }
+
+    /**
+     * @param string $resetToken
+     * @return mixed
+     */
+    public function setResetToken($resetToken)
+    {
+        $this->resetToken = $resetToken;
     }
 
     /**
