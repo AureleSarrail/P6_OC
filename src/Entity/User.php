@@ -124,8 +124,9 @@ class User implements UserInterface
 
     /**
      * @param string $resetToken
+     * @return mixed
      */
-    public function setResetToken(?string $resetToken): void
+    public function setResetToken($resetToken)
     {
         $this->resetToken = $resetToken;
     }

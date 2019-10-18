@@ -19,6 +19,34 @@ class UserRepository extends ServiceEntityRepository
         parent::__construct($registry, User::class);
     }
 
+    /**
+     * @param $mail
+     * @return User
+     */
+    public function findUserByMail($mail)
+    {
+        $req = $this->createQueryBuilder('u')
+            ->where('u.mail = :value')
+            ->setParameter('value', $mail)
+            ->getQuery();
+
+        $result = $req->execute();
+
+        return $result[0];
+    }
+
+    public function findUserByResetToken ($token)
+    {
+        $req = $this->createQueryBuilder('u')
+            ->where('u.resetToken = :value')
+            ->setParameter('value', $token)
+            ->getQuery();
+
+        $result = $req->execute();
+
+        return $result[0];
+    }
+
     // /**
     //  * @return User[] Returns an array of User objects
     //  */
