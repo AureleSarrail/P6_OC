@@ -37,7 +37,8 @@ class ResetPasswordController extends AbstractController
             $value = $resetPassForm->getData();
 
             if ($value['password'] == $value['confirmPassword']) {
-                $user->setPassword($encoder->encodePassword($user, $value['password']));
+                $user->setPassword($encoder->encodePassword($user, $value['password']))
+                    ->setResetToken(null);
                 $em->persist($user);
                 $em->flush();
 

@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="94dd3c4e-b60c-4e9b-900f-3e9998c35fb8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ForgottenPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ForgottenPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/forgotten_password/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forgotten_password/index.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/ResetPasswordController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="44" column="59" selection-start-line="44" selection-start-column="59" selection-end-line="44" selection-end-column="59" />
+            <state relative-caret-position="258">
+              <caret line="39" column="67" selection-start-line="39" selection-start-column="67" selection-end-line="39" selection-end-column="67" />
               <folding>
                 <element signature="e#34#65#0#PHP" expanded="true" />
                 <element signature="e#843#849#1#PHP" expanded="true" />
@@ -96,11 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Form/ResetPasswordType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="14" column="41" lean-forward="true" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
+            <state relative-caret-position="272">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -108,8 +104,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/reset_password/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="48" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
+            <state relative-caret-position="238">
+              <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
               <folding>
                 <element signature="e#12#26#0#Twig" expanded="true" />
               </folding>
@@ -218,8 +214,8 @@
         <option value="$PROJECT_DIR$/src/Entity/User.php" />
         <option value="$PROJECT_DIR$/src/Repository/UserRepository.php" />
         <option value="$PROJECT_DIR$/src/Form/ResetPasswordType.php" />
-        <option value="$PROJECT_DIR$/templates/reset_password/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/ForgottenPasswordController.php" />
+        <option value="$PROJECT_DIR$/templates/reset_password/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/ResetPasswordController.php" />
       </list>
     </option>
@@ -531,7 +527,7 @@
       <workItem from="1570615897379" duration="11775000" />
       <workItem from="1570648010987" duration="3000" />
       <workItem from="1571142530707" duration="10990000" />
-      <workItem from="1571385868308" duration="6161000" />
+      <workItem from="1571385868308" duration="6402000" />
     </task>
     <task id="LOCAL-00001" summary="First commit with symfony installed">
       <created>1568128516282</created>
@@ -757,11 +753,18 @@
       <option name="project" value="LOCAL" />
       <updated>1571155005318</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Forgotten password functionality is ready and working good.">
+      <created>1571392265506</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1571392265506</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131749000" />
+    <option name="totallyTimeSpent" value="131990000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
@@ -793,7 +796,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixtures made for Trick,Image,Vidéo and category.&#10;User and comment are not necessary now." />
     <MESSAGE value="Just begin work on the Homepage.&#10;Trying to add an image, an anchor and to organize some of the tricks on that page." />
     <MESSAGE value="Just add an Image and an anchor.&#10;Now we can get Tricks and organize them" />
     <MESSAGE value="After Visio Commit, Homepage is ready to be organized.&#10;Before that i just have to write my Db function into the TrickRepository.&#10;Function = FindTricksPerPage." />
@@ -818,7 +820,8 @@
     <MESSAGE value="Rework of video upload done.&#10;from now on we only store url in database.&#10;User will post an iframe like always but we only keep url in order to create our own iframe." />
     <MESSAGE value="Users can now create an account.&#10;Now i'll try to add a forgotten password functionality." />
     <MESSAGE value="Forgotten password ?&#10;I'm trying to add this" />
-    <option name="LAST_COMMIT_MESSAGE" value="Forgotten password ?&#10;I'm trying to add this" />
+    <MESSAGE value="Forgotten password functionality is ready and working good." />
+    <option name="LAST_COMMIT_MESSAGE" value="Forgotten password functionality is ready and working good." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Entity/Video.php">
@@ -1196,16 +1199,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/reset_password/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="48" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ForgottenPasswordController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1071">
@@ -1227,10 +1220,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/ResetPasswordType.php">
+    <entry file="file://$PROJECT_DIR$/templates/reset_password/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="14" column="41" lean-forward="true" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
+        <state relative-caret-position="238">
+          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+          <folding>
+            <element signature="e#12#26#0#Twig" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1246,14 +1242,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ResetPasswordController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="44" column="59" selection-start-line="44" selection-start-column="59" selection-end-line="44" selection-end-column="59" />
+        <state relative-caret-position="258">
+          <caret line="39" column="67" selection-start-line="39" selection-start-column="67" selection-end-line="39" selection-end-column="67" />
           <folding>
             <element signature="e#34#65#0#PHP" expanded="true" />
             <element signature="e#843#849#1#PHP" expanded="true" />
             <element signature="e#1612#1623#1#PHP" expanded="true" />
             <element signature="e#1330#1362#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/ResetPasswordType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
