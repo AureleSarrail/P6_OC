@@ -40,7 +40,7 @@ class AddImagetoTrickController extends AbstractController
             $this->addFlash('success', 'Image bien ajoutée');
 
             return $this->redirectToRoute('update_trick', [
-                'id' => $trick->getId()
+                'slug' => $trick->getSlug()
             ]);
         }
 

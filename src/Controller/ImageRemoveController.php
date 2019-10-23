@@ -24,7 +24,7 @@ class ImageRemoveController extends AbstractController
         $manager->flush();
 
         return $this->redirectToRoute('update_trick', [
-            'id' => $trick->getId()
+            'slug' => $trick->getSlug()
         ]);
     }
 }

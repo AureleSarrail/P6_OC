@@ -50,7 +50,7 @@ class AddVideotoTrickController extends AbstractController
 
                 //redirection vers la page de mise à jour de la trick
                 return $this->redirectToRoute('update_trick', [
-                    'id' => $trick->getId()
+                    'slug' => $trick->getSlug()
                 ]);
             } else {
                 $this->addFlash('warning', 'La plateforme n\'est pas supportée !');

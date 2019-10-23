@@ -38,7 +38,7 @@ class ImageUpdateController extends AbstractController
             $this->addFlash('success', 'Image bien ajoutée');
 
             return $this->redirectToRoute('update_trick', [
-                'id' => $image->getTrick()->getId()
+                'slug' => $image->getTrick()->getSlug()
             ]);
 
         }
