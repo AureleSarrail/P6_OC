@@ -27,7 +27,7 @@ class NewTrickController extends AbstractController
             $entityManager->flush();
             $this->addFlash('success','Figure ajoutée');
             return $this->redirectToRoute('update_trick',[
-                'id'=> $trick->getId()
+                'slug'=> $trick->getSlug()
             ]);
         }
 

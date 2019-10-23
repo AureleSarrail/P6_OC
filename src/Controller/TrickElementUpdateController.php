@@ -28,7 +28,7 @@ class TrickElementUpdateController extends AbstractController
             $this->addFlash('success','La tricks a bien été mise à jour');
 
             return $this->redirectToRoute('update_trick', [
-                'id' => $trick->getId()
+                'slug' => $trick->getSlug()
             ]);
         }
 
