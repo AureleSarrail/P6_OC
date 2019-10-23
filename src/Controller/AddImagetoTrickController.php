@@ -6,12 +6,11 @@ use App\Entity\Image;
 use App\Entity\Trick;
 use App\Form\AddImageFormType;
 use App\Security\UploaderHelper;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class AddImagetoTrickController extends AbstractController
 {
@@ -43,7 +42,6 @@ class AddImagetoTrickController extends AbstractController
             return $this->redirectToRoute('update_trick', [
                 'id' => $trick->getId()
             ]);
-
         }
 
 

@@ -16,7 +16,7 @@ class TrickFixture extends AppFixtures implements DependentFixtureInterface
 
             $faker = \Faker\Factory::create('fr_FR');
 
-            $trick->setTrickname($faker->sentence())
+            $trick->setName($faker->sentence())
                 ->setDescription($faker->paragraph())
                 ->setCreatedAt($faker->dateTimeBetween('-3 months'))
                 ->setUpdatedAt(new \DateTime());

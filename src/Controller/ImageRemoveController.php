@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ImageRemoveController extends AbstractController
 {
     /**
-     * @Route("/remove-image/{id}", name="image_remove")
+     * @Route("/remove_image/{id}", name="image_remove")
      * @param EntityManagerInterface $manager
      * @param Image $image
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
