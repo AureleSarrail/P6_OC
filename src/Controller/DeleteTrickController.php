@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class DeleteTrickController extends AbstractController
 {
     /**
-     * @Route("/delete/{id}", name="deleteTrick")
+     * @Route("/delete_trick/{id}", name="deleteTrick")
      */
     public function index(EntityManagerInterface $manager, Trick $trick)
     {

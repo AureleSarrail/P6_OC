@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use App\Form\UserType;
+use App\Form\RegisterType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,14 +15,14 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class AccountCreationController extends AbstractController
 {
     /**
-     * @Route("/account/creation", name="account_creation")
+     * @Route("/account_creation", name="account_creation")
      * @param Request $request
      * @param UserRepository $userRepository
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index(Request $request, EntityManagerInterface $em, UserPasswordEncoderInterface $encoder)
     {
-        $userForm = $this->createForm(UserType::class);
+        $userForm = $this->createForm(RegisterType::class);
 
         $userForm->handleRequest($request);
 

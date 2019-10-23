@@ -22,6 +22,7 @@ class UserRepository extends ServiceEntityRepository
     /**
      * @param $mail
      * @return User
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function findUserByMail($mail)
     {
@@ -30,9 +31,8 @@ class UserRepository extends ServiceEntityRepository
             ->setParameter('value', $mail)
             ->getQuery();
 
-        $result = $req->execute();
+        return $req->getOneOrNullResult();
 
-        return $result[0];
     }
 
     public function findUserByResetToken ($token)

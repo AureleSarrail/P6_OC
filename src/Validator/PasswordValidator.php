@@ -10,6 +10,7 @@ class PasswordValidator extends ConstraintValidator
     public function validate($value, Constraint $constraint)
     {
 
+
 //        if ($value == $verif) {
 //            return true;
 //        }

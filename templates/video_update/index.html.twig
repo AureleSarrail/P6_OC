@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello VideoUpdateController!{% endblock %}
+
+{% block body %}
+
+    <div class="col-lg-6 offset-lg-3 text-center">
+
+        <h1>Mise à Jour de la Vidéo</h1>
+
+        {{ form_start(addVideo) }}
+
+        {{ form_label(addVideo.url, ' ') }}
+
+        {{ form_widget(addVideo.url, {'attr': {'placeholder': video.url}}) }}
+
+        <br>
+
+        <input type="submit" class="btn btn-primary" value="Mettre à jour">
+
+        {{ form_end(addVideo) }}
+
+    </div>
+
+{% endblock %}

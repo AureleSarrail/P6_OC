@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TrickRepository")
@@ -19,9 +20,15 @@ class Trick
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
-    private $trickname;
+    private $name;
+
+    /**
+     * @ORM\Column(type="string", unique=true)
+     * @Gedmo\Slug(fields={"name"})
+     */
+    private $slug;
 
     /**
      * @ORM\Column(type="text")
@@ -73,16 +80,25 @@ class Trick
         return $this->id;
     }
 
-    public function getTrickname(): ?string
+    public function getName(): ?string
     {
-        return $this->trickname;
+        return $this->name;
     }
 
-    public function setTrickname(string $trickname): self
+    public function setname(string $name): self
     {
-        $this->trickname = $trickname;
+        $this->name = $name;
 
         return $this;
+    }
+
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
     }
 
     public function getDescription(): ?string
@@ -134,7 +150,7 @@ class Trick
         if ($this->getImages()->first()) {
             return $this->getImages()->first()->getUrl();
         } else {
-            return "https://via.placeholder.com/150";
+            return "asset('Images/HomePic.jpg')";
         }
     }
 
