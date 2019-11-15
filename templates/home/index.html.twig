@@ -36,4 +36,19 @@
         {% endfor %}
     </div>
 
+    <br><br>
+
+    <div class="row">
+        <div class="col-lg-12 text-center d-flex justify-content-center">
+            <button class="load_more btn btn-primary" data-url="{{ path('load_more_tricks') }}" data-next-page="2">Load More Tricks</button>
+        </div>
+    </div>
+
+    <br><br>
+
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+    <script src="{{ asset('JS/loadMore.js') }}"></script>
 {% endblock %}

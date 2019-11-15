@@ -91,7 +91,7 @@ hr
     margin: 5px;
 }
 
-#blockComment
+.blockComment
 {
     background-color: dodgerblue;
     border: black solid 1px;

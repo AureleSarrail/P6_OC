@@ -12,11 +12,14 @@ class VideoIframeValidator extends ConstraintValidator
         /* @var $constraint \App\Validator\VideoIframe */
 
         if (null === $value || '' === $value) {
-            return;
+            return false;
         }
 
         if (strpos($value,'youtube') or strpos($value,'dailymotion') or strpos($value,'vimeo')) {
-            return;
+            return true;
+        }
+        else {
+            return false;
         }
 
         // TODO: implement the validation here
