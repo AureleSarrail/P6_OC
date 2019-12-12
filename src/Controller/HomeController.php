@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Repository\TrickRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\SerializerInterface;
 
 class HomeController extends AbstractController
 {
@@ -15,7 +17,7 @@ class HomeController extends AbstractController
      * @param int $page
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index(TrickRepository $repo,int $page = 1)
+    public function index(TrickRepository $repo,int $page = 1, SerializerInterface $serializer)
     {
 
         $tricks =  $repo->findTricksPerPage($page);

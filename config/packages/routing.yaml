@@ -2,3 +2,9 @@ framework:
     router:
         strict_requirements: null
         utf8: true
+
+#show_one_trick:
+#    pattern: /trick/{slug}
+#    defaults: { _controller: AppBundle:Default:index }
+#    options:
+#        expose: true

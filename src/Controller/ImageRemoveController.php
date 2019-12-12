@@ -23,6 +23,8 @@ class ImageRemoveController extends AbstractController
         $manager->remove($image);
         $manager->flush();
 
+        $this->addFlash('success', 'L\'image a bien été supprimée.');
+
         return $this->redirectToRoute('update_trick', [
             'slug' => $trick->getSlug()
         ]);

@@ -17,7 +17,7 @@ class TrickRepository extends ServiceEntityRepository
     /**
      *
      */
-    const NB_PRICK_PER_PAGE = 5;
+    const NB_PRICK_PER_PAGE = 4;
 
     /**
      * TrickRepository constructor.
@@ -56,6 +56,27 @@ class TrickRepository extends ServiceEntityRepository
     public function oneTrickById($id)
     {
         return $req = $this->find($id);
+    }
+
+    public function TricksForLoadMore(int $page)
+    {
+        $req = $this->createQueryBuilder('p')
+            ->setMaxResults(self::NB_PRICK_PER_PAGE)
+            ->setFirstResult(($page - 1) * self::NB_PRICK_PER_PAGE)
+            ->orderBy('p.id', 'DESC')
+            ->getQuery();
+
+        return $req->execute();
+    }
+
+    public function countMaxPage()
+    {
+        $req = $this->findAll();
+        $count = count($req);
+
+        $pages = $count/self::NB_PRICK_PER_PAGE;
+
+        return $pages;
     }
 
 

@@ -8,7 +8,6 @@ use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -19,7 +18,7 @@ class TrickType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('trickname', TextType::class)
+            ->add('name', TextType::class)
             ->add('description', TextareaType::class)
             ->add('category', EntityType::class, [
                 "label" => "Title",
@@ -28,7 +27,17 @@ class TrickType extends AbstractType
                 "query_builder" => function(EntityRepository $repo){
                     return $repo->createQueryBuilder("u")->orderBy('u.title','ASC');
                 }
-            ]);
+            ])
+            ->add('images', CollectionType::class, array(
+               'entry_type' => AddImageFormType::class,
+                'entry_options' => array('label' => false),
+                'allow_add' => true,
+                'prototype' => true,
+                'by_reference' => false,
+                'attr' => [
+                    'class' => "addImageCollection"
+                ]
+            ));
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TrickRepository")
@@ -16,17 +17,20 @@ class Trick
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups("public")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
+     * @Groups("public")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", unique=true)
      * @Gedmo\Slug(fields={"name"})
+     * @Groups("public")
      */
     private $slug;
 
@@ -46,7 +50,8 @@ class Trick
     private $updatedAt;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Image", mappedBy="Trick", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Image", mappedBy="Trick", orphanRemoval=true, cascade={"persist"})
+     * @Groups("public")
      */
     private $images;
 
@@ -62,7 +67,7 @@ class Trick
     private $category;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="Trick", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="trick", orphanRemoval=true)
      */
     private $comments;
 
@@ -150,7 +155,7 @@ class Trick
         if ($this->getImages()->first()) {
             return $this->getImages()->first()->getUrl();
         } else {
-            return "asset('Images/HomePic.jpg')";
+            return "Images/HomePic.jpg";
         }
     }
 

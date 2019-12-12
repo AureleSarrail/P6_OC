@@ -22,6 +22,8 @@ class VideoRemoveController extends AbstractController
         $em->remove($video);
         $em->flush();
 
+        $this->addFlash('success', 'La vidéo a bien été supprimée.');
+
         return $this->redirectToRoute('update_trick', [
             'slug' => $trick->getSlug()
         ]);

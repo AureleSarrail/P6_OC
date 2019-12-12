@@ -26,7 +26,7 @@ class ImageUpdateController extends AbstractController
         if ($imageForm->isSubmitted() && $imageForm->isValid()) {
 
             /** @var UploadedFile $uploadedFile */
-            $uploadedFile = $imageForm->getData()['file'];
+            $uploadedFile = $imageForm['file']->getData();
             $newFilename = $uploaderHelper->uploadImage($uploadedFile,$image->getUrl());
 
 

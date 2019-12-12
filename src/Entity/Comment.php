@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CommentRepository")
@@ -18,11 +19,13 @@ class Comment
 
     /**
      * @ORM\Column(type="text")
+     * @Groups("commentPublic")
      */
     private $content;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups("commentPublic")
      */
     private $createdAt;
 
@@ -30,11 +33,12 @@ class Comment
      * @ORM\ManyToOne(targetEntity="App\Entity\Trick", inversedBy="comments")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $Trick;
+    private $trick;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="Comment")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups("commentPublic")
      */
     private $user;
 
@@ -69,12 +73,12 @@ class Comment
 
     public function getTrick(): ?Trick
     {
-        return $this->Trick;
+        return $this->trick;
     }
 
-    public function setTrick(?Trick $Trick): self
+    public function setTrick(?Trick $trick): self
     {
-        $this->Trick = $Trick;
+        $this->trick = $trick;
 
         return $this;
     }
