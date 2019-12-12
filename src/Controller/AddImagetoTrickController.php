@@ -25,12 +25,10 @@ class AddImagetoTrickController extends AbstractController
         $addImage->handleRequest($request);
 
         if ($addImage->isSubmitted() && $addImage->isValid()) {
-            /** @var UploadedFile $uploadedFile */
-            $uploadedFile = $addImage->getData()['file'];
-            if ($uploadedFile) {
-                $newFilename = $uploaderHelper->uploadImage($uploadedFile);
-            }
-            $image = new Image();
+
+            $image = $addImage->getData();
+            $newFilename = $uploaderHelper->uploadImage($image->getFile());
+
             $image->setUrl($newFilename);
             $trick->addImage($image);
 

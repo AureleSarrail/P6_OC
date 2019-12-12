@@ -5,11 +5,21 @@
 {% block body %}
 
     <div class="row">
-        <div class="col-lg-6 offset-lg-3">
+        <div class="col-lg-6 offset-lg-3 text-center">
+            <div class="info">
+                <h1>Ajout d'une Vidéo</h1>
+                <p>Veuillez ajouter ici un lien d'intégration pour votre vidéo.</p>
+                <p>Les plateformes supportées sont :</p>
+                <ul>
+                    <li>Youtube</li>
+                    <li>Daylimotion</li>
+                    <li>Viméo</li>
+                </ul>
+            </div>
 
             {{ form_start(addVideo) }}
 
-            {{ form_row(addVideo) }}
+            {{ form_widget(addVideo) }}
 
             <input type="submit" value="Envoyer la Vidéo" class="btn btn-primary">
 

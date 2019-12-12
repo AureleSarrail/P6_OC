@@ -14,22 +14,33 @@
             <div class="col-lg-3">
                 <div class="row trickHome">
                     <div class="col-lg-12">
-                        <img src="{{ trick.defaultImage }}" alt="" class="col-lg-12">
+                        {% if trick.images.first %}
+                            <img src="uploads/{{ trick.images.first.url }}" alt="" class="col-lg-12 trickPic">
+                        {% else %}
+                            <img src="{{ asset('Images/HomePic.jpg') }}" alt="" class="col-lg-12 trickPic">
+                        {% endif %}
                     </div>
-                    <div class="col-lg-6">
-                        <a href="{{ path('show_one_trick', {'slug': trick.slug}) }}"><p
-                                    class="col-lg-6">{{ trick.name }}</p></a>
-                    </div>
-                    {% if (app.user) %}
-                        <div class="col-lg-3">
+                    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                        <div class="col-lg-9">
+                            <a href="{{ path('show_one_trick', {'slug': trick.slug}) }}">
+                                <p class="col-lg-12">{{ trick.name }}</p>
+                            </a>
+                        </div>
+                        <div class="col-lg-1">
                             <a href="{{ path('update_trick', {'slug': trick.slug}) }}" class="col-lg-3"><img
                                         src="{{ asset('Images/pencil.png') }}" alt=""></a>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-lg-1">
                             <a href="{{ path('deleteTrick', {'id': trick.id}) }}" class="col-lg-3"><img
                                         src="{{ asset('Images/Trash.png') }}" alt=""></a>
                         </div>
+                    {% else %}
+                        <div class="col-lg-12">
+                            <a href="{{ path('show_one_trick', {'slug': trick.slug}) }}">
+                                <p class="col-lg-12">{{ trick.name }}</p></a>
+                        </div>
                     {% endif %}
+
                 </div>
             </div>
 
@@ -38,9 +49,11 @@
 
     <br><br>
 
-    <div class="row">
+    <div class="row" id="load_more_container">
         <div class="col-lg-12 text-center d-flex justify-content-center">
-            <button class="load_more btn btn-primary" data-url="{{ path('load_more_tricks') }}" data-next-page="2">Load More Tricks</button>
+            <button class="load_more btn btn-primary" data-admin="{{ app.user ? "1" :"0" }}"
+                    data-url="{{ path('load_more_tricks') }}" data-next-page="2">Load More Tricks
+            </button>
         </div>
     </div>
 
@@ -49,6 +62,6 @@
 {% endblock %}
 
 {% block javascripts %}
-{{ parent() }}
+    {{ parent() }}
     <script src="{{ asset('JS/loadMore.js') }}"></script>
 {% endblock %}

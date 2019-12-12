@@ -21,9 +21,6 @@ class HomeController extends AbstractController
     {
 
         $tricks =  $repo->findTricksPerPage($page);
-//        $data = [];
-//        $json['pageMax'] =25;
-//        $json['tricks'] = $serializer->serialize($tricks, 'json', ['groups'=> ['public']]);
 
         if(count($tricks) == 0){
             $this->addFlash('danger', "La page n'existe pas");

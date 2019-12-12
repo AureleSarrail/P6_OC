@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
@@ -17,6 +18,11 @@ class Image
      * @Groups("public")
      */
     private $id;
+
+    /**
+     * @var ?File
+     */
+    private $file;
 
 
 
@@ -59,5 +65,21 @@ class Image
         $this->Trick = $Trick;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    /**
+     * @param mixed $file
+     */
+    public function setFile($file): void
+    {
+        $this->file = $file;
     }
 }

@@ -5,9 +5,16 @@
 {% block body %}
 
     <div class="row">
-        <div class="col-lg-6 offset-lg-3">
+        <div class="col-lg-6 offset-lg-3 text-center">
+            <div class="info">
+                <h1>Ajout d'une Image</h1>
 
-            <form action="{{ path('add_image_to_trick', {'id': trick.id}) }}" method="post" enctype="multipart/form-data">
+                <p>Veuillez choisir ci-dessous le fichier à ajouter à votre Trick.</p>
+                <p>La taille des fichiers est limité à 2Mo.</p>
+            </div>
+
+            <form action="{{ path('add_image_to_trick', {'id': trick.id}) }}" method="post"
+                  enctype="multipart/form-data">
 
                 {{ form_widget(addImage) }}
 

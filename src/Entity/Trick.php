@@ -50,7 +50,7 @@ class Trick
     private $updatedAt;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Image", mappedBy="Trick", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Image", mappedBy="Trick", orphanRemoval=true, cascade={"persist"})
      * @Groups("public")
      */
     private $images;
@@ -67,7 +67,7 @@ class Trick
     private $category;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="Trick", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="trick", orphanRemoval=true)
      */
     private $comments;
 
@@ -155,7 +155,7 @@ class Trick
         if ($this->getImages()->first()) {
             return $this->getImages()->first()->getUrl();
         } else {
-            return "asset('Images/HomePic.jpg')";
+            return "Images/HomePic.jpg";
         }
     }
 

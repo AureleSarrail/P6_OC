@@ -3,6 +3,8 @@ const url = loadMoreButton.dataset.url;
 
 const tricksContainer = document.getElementById('Tricks_Block');
 
+const loadMoreContainer = document.getElementById('load_more_container');
+
 loadMoreButton.addEventListener('click', function (event) {
 
     let page = Number(loadMoreButton.dataset.nextPage);
@@ -16,13 +18,26 @@ loadMoreButton.addEventListener('click', function (event) {
             tricks = JSON.parse(tricks);
             console.log(tricks);
 
+            let pageMax = Number(tricks[1]);
+            console.log('pagemax : ' + pageMax);
+
+            if(loadMoreButton.dataset.nextPage <= pageMax) {
+                console.log('bonjour');
+                tricks[0].forEach(function (trick) {
+                    createTrickCard(trick);
+                })
+            }
 
             loadMoreButton.dataset.nextPage = page + 1;
-            tricks.forEach(function (trick) {
-                createTrickCard(trick);
-            });
 
-            loadMoreButton.remove();
+            console.log('nextpage : ' + loadMoreButton.dataset.nextPage);
+
+            if(loadMoreButton.dataset.nextPage > pageMax ) {
+                // loadMoreButton.remove();
+                parent = loadMoreButton.parentElement;
+                parent.removeChild(loadMoreButton);
+                // document.body.removeChild(loadMoreContainer);
+            }
         }
     });
 });
@@ -31,26 +46,48 @@ loadMoreButton.addEventListener('click', function (event) {
 function createTrickCard(trick) {
     let div = document.createElement('div');
 
+    let urlOnePost = Routing.generate('show_one_trick', {slug: trick.slug});
+    let urlUpdate = Routing.generate('update_trick', {slug: trick.slug});
+    let urlDelete = Routing.generate('deleteTrick', {id: trick.id});
+
+    let imgUrl = trick.image;
+
     div.classList.add('col-lg-3');
 
-    div.innerHTML = `<div class="row trickHome">
+    if(loadMoreButton.dataset.admin == 1){
+        div.innerHTML = `<div class="row trickHome">
         <div class="col-lg-12">
-            <img src="${trick.images[0].url}" alt="" class="col-lg-12">
+            <img src="${imgUrl}" alt="" class="col-lg-12 trickPic">
         </div>
-        <div class="col-lg-6">
-            <a href="{{ path('show_one_trick', {'slug': ${trick.slug}}) }}" ><p class="col-lg-6">${trick.name}</p></a>
-         </div>
-        <div class="col-lg-3">
-            <a href="update_trick/${trick.slug}" class="col-lg-3"><img
-                        src="../public/Images/pencil.png" alt=""></a>
+        <div class="col-lg-9">
+            <a href="${urlOnePost}" ><p class="col-lg-12">${trick.name}</p></a>
+         </div> 
+         <div class="col-lg-1">
+            <a href="${urlUpdate}" class="col-lg-3"><img
+                        src="/Images/pencil.png" alt=""></a>
         </div>
-        <div class="col-lg-3">
-            <a href="{{ path('deleteTrick', {'id': " + ${trick.id} + "} }}" class="col-lg-3"><img
-                        src="../public/Images/Trash.png" alt=""></a>
+        <div class="col-lg-1">
+            <a href="${urlDelete}" class="col-lg-3"><img
+                        src="/Images/Trash.png" alt=""></a>
         </div>
     </div>`;
+    }
+    else {
+        div.innerHTML = `<div class="row trickHome">
+        <div class="col-lg-12">
+            <img src="${imgUrl}" alt="" class="col-lg-12 trickPic">
+        </div>
+        <div class="col-lg-12">
+            <a href="${urlOnePost}" ><p class="col-lg-12">${trick.name}</p></a>
+         </div> 
+         </div>`;
+    }
+
+
 
     tricksContainer.appendChild(div);
 
 
 }
+
+//

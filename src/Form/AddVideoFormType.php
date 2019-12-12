@@ -3,34 +3,33 @@
 namespace App\Form;
 
 use App\Entity\Video;
+use App\Form\DataTransformer\IframeToUrl;
+use App\Validator\VideoIframe;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\CallbackTransformer;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\UrlType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class AddVideoFormType extends AbstractType
 {
+    private $transformer;
+
+    public function __construct(IframeToUrl $transformer)
+    {
+        $this->transformer = $transformer;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('url');
+            ->add('url', TextType::class, [
+                'constraints' => [
+                    new VideoIframe()
+                ]
+            ]);
 
         $builder->get('url')
-            ->addModelTransformer(new CallbackTransformer(
-                function ($iframe) {
-                    $debutSrc = strpos($iframe, "http");
-                    $finSrc = strpos($iframe, "\"", $debutSrc);
-                    $length = $finSrc - $debutSrc;
-                    $url = substr($iframe, $debutSrc, $length);
-
-                    return $url;
-                },
-                function ($src) {
-                    return $src;
-                }
-            ));
+            ->addModelTransformer($this->transformer);
     }
 
     public function configureOptions(OptionsResolver $resolver)

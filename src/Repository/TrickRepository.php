@@ -17,7 +17,7 @@ class TrickRepository extends ServiceEntityRepository
     /**
      *
      */
-    const NB_PRICK_PER_PAGE = 5;
+    const NB_PRICK_PER_PAGE = 4;
 
     /**
      * TrickRepository constructor.
@@ -71,7 +71,12 @@ class TrickRepository extends ServiceEntityRepository
 
     public function countMaxPage()
     {
-        // TODO
+        $req = $this->findAll();
+        $count = count($req);
+
+        $pages = $count/self::NB_PRICK_PER_PAGE;
+
+        return $pages;
     }
 
 

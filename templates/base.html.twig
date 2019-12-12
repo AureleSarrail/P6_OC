@@ -60,20 +60,25 @@
 {% block body %}{% endblock %}
 {% block javascripts %}
 
-
+    <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
     <script
             src="https://code.jquery.com/jquery-3.4.1.js"
             integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
             crossorigin="anonymous"></script>
     <script type="text/javascript" src="{{ asset('JS/smoothScroll.js') }}"></script>
     <script type="text/javascript">
-        $('.custom-file-input').on('change', function (event) {
+        $(document).on('change','.custom-file-input', function (event) {
+            console.log(event.currentTarget);
             var inputFile = event.currentTarget;
             $(inputFile).parent()
                 .find('.custom-file-label')
                 .html(inputFile.files[0].name);
         })
     </script>
+
+
+
 {% endblock %}
 
 </body>

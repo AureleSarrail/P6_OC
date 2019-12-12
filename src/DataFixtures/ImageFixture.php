@@ -13,10 +13,19 @@ class ImageFixture extends AppFixtures implements DependentFixtureInterface
     public function loadData(ObjectManager $manager)
     {
 
-        $this->createMany(Image::class,50, function(Image $image) {
+        $this->createMany(Image::class,250, function(Image $image) {
             $faker = \Faker\Factory::create('fr_FR');
 
-            $image->setUrl($faker->imageUrl())
+            $url = array(
+                'snow1.gif',
+                'snow2.jpg',
+                'snow3.jpg',
+                'snow4.jpg',
+                'snow6.jpg'
+            );
+
+
+            $image->setUrl($url[rand(0,4)])
                 ->setTrick($this->getRandomReference(Trick::class));
         });
 

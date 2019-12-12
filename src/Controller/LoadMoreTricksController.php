@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\TrickRepository;
+use App\Service\LoadMoreTricksRepresentation;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,20 +15,19 @@ class LoadMoreTricksController extends AbstractController
     /**
      * @Route("/load_more_tricks", name="load_more_tricks")
      */
-    public function index(TrickRepository $trickRepository, Request $request, SerializerInterface $serializer)
+    public function index(TrickRepository $trickRepository, Request $request, SerializerInterface $serializer, LoadMoreTricksRepresentation $loadMoreTricksRepresentation)
     {
         if ($request->isXmlHttpRequest()) {
             $page = $request->request->get('page');
 
             $tricks = $trickRepository->TricksForLoadMore($page);
 
+            $represent = $loadMoreTricksRepresentation($tricks);
+
             $nbPage = $trickRepository->countMaxPage();
 
-//            $response = new JsonResponse(array(
-//                'tricks' => $tricks
-//            ));
+            $json = $serializer->serialize(array($represent,$nbPage), 'json', ['groups'=> ['public']]);
 
-            $json = $serializer->serialize($tricks, 'json', ['groups'=> ['public']]);
             return new JsonResponse($json);
         }
         else{
@@ -36,9 +36,5 @@ class LoadMoreTricksController extends AbstractController
                 'message' => 'Error'),
                 400);
         }
-//
-
-
-
     }
 }

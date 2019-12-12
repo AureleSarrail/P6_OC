@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class OneTrickPageController extends AbstractController
 {
     /**
-     * @Route("/trick/{slug}", name="show_one_trick")
+     * @Route("/trick/{slug}", name="show_one_trick", options={"expose" = true})
      * @param Trick $trick
      * @param Request $request
      * @param EntityManagerInterface $manager
@@ -28,6 +28,9 @@ class OneTrickPageController extends AbstractController
         $commentForm = $this->createForm(CommentFormType::class);
 
         $commentForm->handleRequest($request);
+
+        $commentCount = $trick->getComments()->count();
+        $commentPageMax = $commentCount/10;
 
         if ($commentForm->isSubmitted() && ($commentForm->isValid())) {
 
@@ -48,7 +51,8 @@ class OneTrickPageController extends AbstractController
 
         return $this->render('one_trick_page/index.html.twig', [
             'commentForm' => $commentForm->createView(),
-            'trick' => $trick
+            'trick' => $trick,
+            'pageMax' => $commentPageMax
         ]);
     }
 }

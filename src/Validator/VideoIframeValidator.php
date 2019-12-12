@@ -11,6 +11,8 @@ class VideoIframeValidator extends ConstraintValidator
     {
         /* @var $constraint \App\Validator\VideoIframe */
 
+        dump($value);
+
         if (null === $value || '' === $value) {
             return false;
         }
@@ -18,13 +20,10 @@ class VideoIframeValidator extends ConstraintValidator
         if (strpos($value,'youtube') or strpos($value,'dailymotion') or strpos($value,'vimeo')) {
             return true;
         }
-        else {
-            return false;
-        }
 
         // TODO: implement the validation here
         $this->context->buildViolation($constraint->message)
-            ->setParameter('XXXXXX', $value)
+            ->setParameter('CODE', $value)
             ->addViolation();
     }
 }

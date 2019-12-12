@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Trick;
 use App\Form\AddVideoFormType;
-use App\Service\AddVideoManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,7 +19,7 @@ class AddVideotoTrickController extends AbstractController
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function index(Trick $trick, AddVideoFormType $addVideo, EntityManagerInterface $em, AddVideoManager $manager, Request $request)
+    public function index(Trick $trick, EntityManagerInterface $em, Request $request)
     {
 
         $addVideo = $this->createForm(AddVideoFormType::class);
@@ -29,14 +28,6 @@ class AddVideotoTrickController extends AbstractController
 
         if ($addVideo->isSubmitted() && $addVideo->isValid()) {
             $video = $addVideo->getData();
-
-            //on fait un test si la plateforme est supportée
-            if (strpos($video->getUrl(), 'youtube') or strpos($video->getUrl(), 'dailymotion') or strpos($video->getUrl(), 'vimeo')) {
-
-                $url = $manager->getSrc($video->getUrl());
-
-                //on remplace l'url par celle obtenue
-                $video->setUrl($url);
 
                 //on l'ajoute à la trick
                 $trick->addVideo($video);
@@ -52,9 +43,6 @@ class AddVideotoTrickController extends AbstractController
                 return $this->redirectToRoute('update_trick', [
                     'slug' => $trick->getSlug()
                 ]);
-            } else {
-                $this->addFlash('warning', 'La plateforme n\'est pas supportée !');
-            }
         }
 
         return $this->render('add_videoto_trick/index.html.twig', [

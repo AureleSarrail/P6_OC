@@ -2,7 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Image;
+use App\Entity\Trick;
 use App\Form\TrickType;
+use App\Security\UploaderHelper;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,7 +16,7 @@ class NewTrickController extends AbstractController
     /**
      * @Route("/newTrick", name="new_trick")
      */
-    public function index(Request $request, EntityManagerInterface $entityManager)
+    public function index(Request $request, EntityManagerInterface $entityManager,UploaderHelper $uploaderHelper)
     {
 
 
@@ -23,6 +26,12 @@ class NewTrickController extends AbstractController
 
         if($trickForm->isSubmitted() && $trickForm->isValid()){
             $trick = $trickForm->getData();
+
+            for($i=0; $i < $trick->getImages()->count(); $i++) {
+                $newFilename = $uploaderHelper->uploadImage($trick->getImages()[$i]->getFile());
+                $trick->getImages()[$i]->setUrl($newFilename);
+            }
+
             $entityManager->persist($trick);
             $entityManager->flush();
             $this->addFlash('success','Figure ajoutée');

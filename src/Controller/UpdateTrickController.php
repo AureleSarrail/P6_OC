@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class UpdateTrickController extends AbstractController
 {
     /**
-     * @Route("/updateTrick/{slug}", name="update_trick")
+     * @Route("/updateTrick/{slug}", name="update_trick", options={"expose" = true})
      */
     public function index(Trick $trick, TrickRepository $trickRepo)
     {
