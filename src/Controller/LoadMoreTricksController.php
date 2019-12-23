@@ -14,6 +14,11 @@ class LoadMoreTricksController extends AbstractController
 {
     /**
      * @Route("/load_more_tricks", name="load_more_tricks")
+     * @param TrickRepository $trickRepository
+     * @param Request $request
+     * @param SerializerInterface $serializer
+     * @param LoadMoreTricksRepresentation $loadMoreTricksRepresentation
+     * @return JsonResponse
      */
     public function index(TrickRepository $trickRepository, Request $request, SerializerInterface $serializer, LoadMoreTricksRepresentation $loadMoreTricksRepresentation)
     {
@@ -26,11 +31,10 @@ class LoadMoreTricksController extends AbstractController
 
             $nbPage = $trickRepository->countMaxPage();
 
-            $json = $serializer->serialize(array($represent,$nbPage), 'json', ['groups'=> ['public']]);
+            $json = $serializer->serialize(array($represent, $nbPage), 'json', ['groups' => ['public']]);
 
             return new JsonResponse($json);
-        }
-        else{
+        } else {
             return new JsonResponse(array(
                 'status' => 'Error',
                 'message' => 'Error'),

@@ -79,5 +79,10 @@ class TrickRepository extends ServiceEntityRepository
         return $pages;
     }
 
+    public function save(Trick $trick){
+        $this->_em->persist($trick);
+        $this->_em->flush();
+    }
+
 
 }

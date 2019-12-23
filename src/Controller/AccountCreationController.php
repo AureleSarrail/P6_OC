@@ -2,14 +2,12 @@
 
 namespace App\Controller;
 
-use App\Entity\User;
 use App\Form\RegisterType;
-use App\Repository\UserRepository;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Service\CreateNewUser;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 
 class AccountCreationController extends AbstractController
@@ -17,10 +15,10 @@ class AccountCreationController extends AbstractController
     /**
      * @Route("/account_creation", name="account_creation")
      * @param Request $request
-     * @param UserRepository $userRepository
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param CreateNewUser $createNewUser
+     * @return Response
      */
-    public function index(Request $request, EntityManagerInterface $em, UserPasswordEncoderInterface $encoder)
+    public function index(Request $request, CreateNewUser $createNewUser)
     {
         $userForm = $this->createForm(RegisterType::class);
 
@@ -28,24 +26,17 @@ class AccountCreationController extends AbstractController
 
         if ($userForm->isSubmitted() && $userForm->isValid()) {
 
-            $newUser = $userForm->getData();
+            $data = $userForm->getData();
+            //Création de l'Utilisateur
+            $user = $createNewUser->newUser($data['username'],$data['mail'],$data['password']);
 
-            if ($newUser['password'] == $newUser['controlPass']) {
-                $user = new User();
-                $user->setUsername($newUser['username'])
-                    ->setMail($newUser['mail'])
-                    ->setPassword($encoder->encodePassword($user, $newUser['password']));
-
-                $em->persist($user);
-                $em->flush();
-
+            if ($user) {
                 $this->addFlash('success', 'Votre compte a été créé avec succés');
-
-                return $this->redirectToRoute('app_login');
-
             } else {
-                $this->addFlash('warning', 'Les mots de passes de sont pas identiques !');
+                $this->addFlash('warning', 'Problème lors de la création du compte');
             }
+
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render('account_creation/index.html.twig', [
