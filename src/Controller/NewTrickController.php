@@ -2,41 +2,40 @@
 
 namespace App\Controller;
 
-use App\Entity\Image;
 use App\Entity\Trick;
 use App\Form\TrickType;
-use App\Security\UploaderHelper;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Service\NewTrickService;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class NewTrickController extends AbstractController
 {
     /**
      * @Route("/newTrick", name="new_trick")
+     * @Security("has_role('ROLE_USER')")
+     * @param Request $request
+     * @param NewTrickService $service
+     * @return RedirectResponse|Response
      */
-    public function index(Request $request, EntityManagerInterface $entityManager,UploaderHelper $uploaderHelper)
+    public function index(Request $request, NewTrickService $service)
     {
-
-
         $trickForm = $this->createForm(TrickType::class);
 
         $trickForm->handleRequest($request);
 
-        if($trickForm->isSubmitted() && $trickForm->isValid()){
-            $trick = $trickForm->getData();
+        if ($trickForm->isSubmitted() && $trickForm->isValid()) {
 
-            for($i=0; $i < $trick->getImages()->count(); $i++) {
-                $newFilename = $uploaderHelper->uploadImage($trick->getImages()[$i]->getFile());
-                $trick->getImages()[$i]->setUrl($newFilename);
-            }
+            /** @var Trick $trick */
+            $trick = $service->newTrick($trickForm->getData());
 
-            $entityManager->persist($trick);
-            $entityManager->flush();
-            $this->addFlash('success','Figure ajoutée');
-            return $this->redirectToRoute('update_trick',[
-                'slug'=> $trick->getSlug()
+            $this->addFlash('success', 'Figure ajoutée');
+
+            return $this->redirectToRoute('update_trick', [
+                'slug' => $trick->getSlug()
             ]);
         }
 

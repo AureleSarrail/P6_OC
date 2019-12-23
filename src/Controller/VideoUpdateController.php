@@ -4,42 +4,40 @@ namespace App\Controller;
 
 use App\Entity\Video;
 use App\Form\AddVideoFormType;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Service\UpdateVideoService;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class VideoUpdateController extends AbstractController
 {
     /**
      * @Route("/video/update/{id}", name="video_update")
+     * @Security("has_role('ROLE_USER')")
+     * @param Video $video
+     * @param Request $request
+     * @param UpdateVideoService $service
+     * @return RedirectResponse|Response
      */
-    public function index(Video $video, Request $request, EntityManagerInterface $em)
+    public function index(Video $video, Request $request, UpdateVideoService $service)
     {
         $addVideoForm = $this->createForm(AddVideoFormType::class);
 
         $addVideoForm->handleRequest($request);
 
         if ($addVideoForm->isSubmitted() && $addVideoForm->isValid()) {
-            $newVideo = $addVideoForm->getData();
 
-            $video->setUrl($newVideo->getUrl());
+            $trick = $service->updateVideo($addVideoForm->getData(),$video);
 
-            //intégration
-            $em->persist($video);
-            $em->flush();
-
-            //message si ok
             $this->addFlash('success', 'Vidéo bien ajoutée');
-
-            $trick = $video->getTrick();
 
             //redirection vers la page de mise à jour de la trick
             return $this->redirectToRoute('update_trick', [
                 'slug' => $trick->getSlug()
             ]);
-        } else {
-            $this->addFlash('warning', 'La plateforme n\'est pas supportée !');
         }
 
         return $this->render('video_update/index.html.twig', ['addVideo' => $addVideoForm->createView(),

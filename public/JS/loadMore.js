@@ -5,7 +5,7 @@ const tricksContainer = document.getElementById('Tricks_Block');
 
 const loadMoreContainer = document.getElementById('load_more_container');
 
-loadMoreButton.addEventListener('click', function (event) {
+loadMoreButton.addEventListener('click', function () {
 
     let page = Number(loadMoreButton.dataset.nextPage);
     $.ajax({
@@ -19,10 +19,8 @@ loadMoreButton.addEventListener('click', function (event) {
             console.log(tricks);
 
             let pageMax = Number(tricks[1]);
-            console.log('pagemax : ' + pageMax);
 
             if(loadMoreButton.dataset.nextPage <= pageMax) {
-                console.log('bonjour');
                 tricks[0].forEach(function (trick) {
                     createTrickCard(trick);
                 })
@@ -30,13 +28,9 @@ loadMoreButton.addEventListener('click', function (event) {
 
             loadMoreButton.dataset.nextPage = page + 1;
 
-            console.log('nextpage : ' + loadMoreButton.dataset.nextPage);
-
             if(loadMoreButton.dataset.nextPage > pageMax ) {
-                // loadMoreButton.remove();
-                parent = loadMoreButton.parentElement;
+                let parent = loadMoreButton.parentElement;
                 parent.removeChild(loadMoreButton);
-                // document.body.removeChild(loadMoreContainer);
             }
         }
     });

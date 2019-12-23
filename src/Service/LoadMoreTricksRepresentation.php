@@ -23,34 +23,35 @@ class LoadMoreTricksRepresentation
 
     /**
      * @param Trick[] $tricks
+     * @return array
      */
     public function __invoke($tricks)
     {
 
         $represent = [];
 
-        foreach ($tricks as $trick){
-            if ($trick->getImages() != null) {
-
+        foreach ($tricks as $trick) {
+            if ($trick->getImages()->count() != 0) {
                 $represent[] = array(
                     'id' => $trick->getId(),
                     'name' => $trick->getName(),
                     'slug' => $trick->getSlug(),
-                    'image' => $this->package->getUrl('uploads/'.$trick->getImages()->first()->getUrl())
+                    'image' => $this->package->getUrl('uploads/' . $trick->getImages()->first()->getUrl())
                 );
 
-            }
-            else {
+            } else {
                 $images = [];
                 $image = $this->package->getUrl('images/HomePic.jpg');
                 $images[] = $image;
-                $represent[] = array($trick->getId(),$trick->getName(),$trick->getSlug(),$images);
+                $represent[] = array(
+                    'id' => $trick->getId(),
+                    'name' => $trick->getName(),
+                    'slug' => $trick->getSlug(),
+                    'image' => $images);
             }
         }
 
         return $represent;
-
-      // dd($this->package->getUrl('uploads/'.$tricks[0]->getImages()->first()->getUrl()));
 
     }
 }

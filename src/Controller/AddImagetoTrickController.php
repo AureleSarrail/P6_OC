@@ -2,38 +2,35 @@
 
 namespace App\Controller;
 
-use App\Entity\Image;
 use App\Entity\Trick;
 use App\Form\AddImageFormType;
-use App\Security\UploaderHelper;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Service\AddOneImageService;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AddImagetoTrickController extends AbstractController
 {
     /**
      * @Route("/addimage/{id}", name="add_image_to_trick")
+     * @Security("has_role('ROLE_USER')")
+     * @param Request $request
+     * @param Trick $trick
+     * @param AddOneImageService $service
+     * @return RedirectResponse|Response
      */
-    public function index(Request $request, Trick $trick, EntityManagerInterface $em, UploaderHelper $uploaderHelper)
+    public function index(Request $request, Trick $trick, AddOneImageService $service)
     {
-
         $addImage = $this->createForm(AddImageFormType::class);
 
         $addImage->handleRequest($request);
 
         if ($addImage->isSubmitted() && $addImage->isValid()) {
 
-            $image = $addImage->getData();
-            $newFilename = $uploaderHelper->uploadImage($image->getFile());
-
-            $image->setUrl($newFilename);
-            $trick->addImage($image);
-
-            $em->persist($image);
-            $em->flush();
+            $service->addOneImage($addImage->getData(), $trick);
 
             $this->addFlash('success', 'Image bien ajoutée');
 

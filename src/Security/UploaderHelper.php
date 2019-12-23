@@ -2,7 +2,8 @@
 
 namespace App\Security;
 
-use App\Entity\Trick;
+use Gedmo\Sluggable\Util\Urlizer;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class UploaderHelper
@@ -14,12 +15,19 @@ class UploaderHelper
         $this->uploadPath = $uploadPath;
     }
 
-    public function uploadImage(UploadedFile $uploadedFile, ?string $oldFilename = null): string
+    public function uploadImage(File $file, ?string $oldFilename = null): string
     {
         $destination = $this->uploadPath;
-        $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
-        $newFilename = $originalFilename . '-' . uniqid() . '.' . $uploadedFile->guessExtension();
-        $uploadedFile->move(
+        if($file instanceof UploadedFile) {
+            $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+        }
+        else{
+            $originalFilename = $file->getFilename();
+        }
+
+        $newFilename = Urlizer::urlize(pathinfo($originalFilename, PATHINFO_FILENAME)).'-'.uniqid().'.'.$file->guessExtension();
+
+        $file->move(
             $destination,
             $newFilename
         );
@@ -29,5 +37,13 @@ class UploaderHelper
         }
 
         return $newFilename;
+    }
+
+    /**
+     * @param $oldFilename
+     */
+    public function deleteImage($oldFilename)
+    {
+        @unlink($this->uploadPath.'/'.$oldFilename);
     }
 }

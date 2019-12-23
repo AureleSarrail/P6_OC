@@ -4,22 +4,25 @@ namespace App\Controller;
 
 use App\Entity\Trick;
 use App\Form\AddVideoFormType;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Service\AddOneVideoService;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AddVideotoTrickController extends AbstractController
 {
     /**
      * @Route("/addVideo/{id}", name="add_video_to_trick")
+     * @Security("has_role('ROLE_USER')")
      * @param Trick $trick
-     * @param AddVideoFormType $addVideo
-     * @param EntityManagerInterface $em
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @param AddOneVideoService $service
+     * @return RedirectResponse|Response
      */
-    public function index(Trick $trick, EntityManagerInterface $em, Request $request)
+    public function index(Trick $trick, Request $request, AddOneVideoService $service)
     {
 
         $addVideo = $this->createForm(AddVideoFormType::class);
@@ -27,22 +30,16 @@ class AddVideotoTrickController extends AbstractController
         $addVideo->handleRequest($request);
 
         if ($addVideo->isSubmitted() && $addVideo->isValid()) {
-            $video = $addVideo->getData();
 
-                //on l'ajoute à la trick
-                $trick->addVideo($video);
+            $service->addOneVideo($addVideo->getData(), $trick);
 
-                //intégration
-                $em->persist($video);
-                $em->flush();
+            //message si ok
+            $this->addFlash('success', 'Vidéo bien ajoutée');
 
-                //message si ok
-                $this->addFlash('success', 'Vidéo bien ajoutée');
-
-                //redirection vers la page de mise à jour de la trick
-                return $this->redirectToRoute('update_trick', [
-                    'slug' => $trick->getSlug()
-                ]);
+            //redirection vers la page de mise à jour de la trick
+            return $this->redirectToRoute('update_trick', [
+                'slug' => $trick->getSlug()
+            ]);
         }
 
         return $this->render('add_videoto_trick/index.html.twig', [

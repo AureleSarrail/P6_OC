@@ -13,6 +13,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  */
 class Trick
 {
+    const MAX_COMMENTS_PER_PAGE = 10;
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -254,5 +255,9 @@ class Trick
         }
 
         return $this;
+    }
+
+    public function getCommentsMaxPage(){
+        return $this->getComments()->count() / self::MAX_COMMENTS_PER_PAGE;
     }
 }

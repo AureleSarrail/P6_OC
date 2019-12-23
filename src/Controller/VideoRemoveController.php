@@ -3,24 +3,24 @@
 namespace App\Controller;
 
 use App\Entity\Video;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Service\DeleteVideoService;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 class VideoRemoveController extends AbstractController
 {
     /**
      * @Route("/video_remove/{id}", name="video_remove")
+     * @Security("has_role('ROLE_USER')")
      * @param Video $video
-     * @param EntityManagerInterface $em
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @param DeleteVideoService $service
+     * @return RedirectResponse
      */
-    public function index(Video $video,EntityManagerInterface $em)
+    public function index(Video $video, DeleteVideoService $service)
     {
-        $trick = $video->getTrick();
-
-        $em->remove($video);
-        $em->flush();
+        $trick = $service->deleteVideo($video);
 
         $this->addFlash('success', 'La vidéo a bien été supprimée.');
 

@@ -8,24 +8,19 @@ use Symfony\Component\Form\DataTransformerInterface;
 class IframeToUrl implements DataTransformerInterface
 {
 
-    public function transform($iframe)
+    public function transform($url)
     {
-        $debutSrc = strpos($iframe, "http");
-        $finSrc = strpos($iframe, "\"", $debutSrc);
-        $length = $finSrc - $debutSrc;
-        $url = substr($iframe, $debutSrc, $length);
-
         return $url;
     }
 
     public function reverseTransform($iframe)
     {
-        $debutSrc = strpos($iframe, "http");
-        $finSrc = strpos($iframe, "\"", $debutSrc);
-        $length = $finSrc - $debutSrc;
-        $url = substr($iframe, $debutSrc, $length);
-
-        return $url;
+        $reg = '/(http(s):\/\/.*?)(?=")/';
+        if(preg_match($reg,$iframe)) {
+            preg_match($reg,$iframe,$matches);
+            $url = $matches[0];
+            return $url;
+        }
     }
 
 }
