@@ -45,4 +45,3 @@ class VideoUpdateController extends AbstractController
         ]);
     }
 }
-

@@ -25,9 +25,7 @@ class ForgottenPasswordController extends AbstractController
         Request $request,
         UserManager $userManager,
         UserRepository $userRepository
-    )
-    {
-
+    ) {
         $userForm = $this->createForm(ForgottenPasswordType::class);
 
         $userForm->handleRequest($request);
@@ -38,11 +36,9 @@ class ForgottenPasswordController extends AbstractController
                 $userManager->generateResetToken($user);
 
                 $this->addFlash('success', 'Le mail a bien été envoyé.');
-
             } catch (NonUniqueResultException $e) {
                 $this->addFlash('danger', 'Cette adresse mail n\'existe pas !');
             }
-
             return $this->redirectToRoute('home');
         }
 

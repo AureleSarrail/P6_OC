@@ -55,4 +55,3 @@ abstract class AppFixtures extends Fixture
         return $this->getReference($randomReferenceKey);
     }
 }
-

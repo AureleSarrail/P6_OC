@@ -30,7 +30,6 @@ class AddVideotoTrickController extends AbstractController
         $addVideo->handleRequest($request);
 
         if ($addVideo->isSubmitted() && $addVideo->isValid()) {
-
             $service->addOneVideo($addVideo->getData(), $trick);
 
             //message si ok

@@ -3,7 +3,6 @@
 
 namespace App\Service;
 
-
 use App\Entity\User;
 use Swift_Mailer;
 use Swift_Message;
@@ -53,4 +52,3 @@ class Mailer
         return $this->mailer->send($message);
     }
 }
-

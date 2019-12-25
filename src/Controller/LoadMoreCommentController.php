@@ -37,4 +37,3 @@ class LoadMoreCommentController extends AbstractController
         }
     }
 }
-

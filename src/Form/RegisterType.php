@@ -23,9 +23,9 @@ class RegisterType extends AbstractType
                 'type' => PasswordType::class,
                 'required' => true
             ])
-            ->add('mail',EmailType::class, [
+            ->add('mail', EmailType::class, [
                 'required' => true
-            ]) ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

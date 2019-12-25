@@ -22,5 +22,4 @@ class IframeToUrl implements DataTransformerInterface
             return $url;
         }
     }
-
 }

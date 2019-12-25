@@ -30,7 +30,6 @@ class ImageUpdateController extends AbstractController
         $imageForm->handleRequest($request);
 
         if ($imageForm->isSubmitted() && $imageForm->isValid()) {
-
             /** @var UploadedFile $uploadedFile */
             $service->updateImage($imageForm['file']->getData(), $image);
 
@@ -39,9 +38,7 @@ class ImageUpdateController extends AbstractController
             return $this->redirectToRoute('update_trick', [
                 'slug' => $image->getTrick()->getSlug()
             ]);
-
         }
-
         return $this->render('image_update/index.html.twig', [
             'imageForm' => $imageForm->createView()
         ]);

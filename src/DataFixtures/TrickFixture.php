@@ -38,4 +38,3 @@ class TrickFixture extends AppFixtures implements DependentFixtureInterface
         return [CategoryFixture::class];
     }
 }
-

@@ -39,11 +39,13 @@ class LoadMoreTricksController extends AbstractController
 
             return new JsonResponse($json);
         } else {
-            return new JsonResponse(array(
+            return new JsonResponse(
+                array(
                 'status' => 'Error',
                 'message' => 'Error'
             ),
-            400);
+            400
+            );
         }
     }
 }

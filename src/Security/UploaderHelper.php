@@ -25,7 +25,8 @@ class UploaderHelper
         }
 
         $newFilename = Urlizer::urlize(pathinfo($originalFilename,
-                PATHINFO_FILENAME)) . '-' . uniqid() . '.' . $file->guessExtension();
+                PATHINFO_FILENAME))
+            . '-' . uniqid() . '.' . $file->guessExtension();
 
         $file->move(
             $destination,
