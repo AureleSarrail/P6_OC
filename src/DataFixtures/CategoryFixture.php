@@ -12,7 +12,7 @@ class CategoryFixture extends AppFixtures
     {
 
 
-        $this->createMany(Category::class, 3, function (Category $category, $count) {
+        $this->createMany(Category::class, 3, function (Category $category) {
             $faker = \Faker\Factory::create('fr_FR');
 
             $category->setTitle($faker->sentence())
