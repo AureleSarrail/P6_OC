@@ -51,7 +51,7 @@ class Trick
     private $updatedAt;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Image", mappedBy="Trick", orphanRemoval=true, cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="App\Entity\Image", mappedBy="trick", orphanRemoval=true, cascade={"persist"})
      * @Groups("public")
      */
     private $images;
