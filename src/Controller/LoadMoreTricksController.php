@@ -43,7 +43,7 @@ class LoadMoreTricksController extends AbstractController
                 'status' => 'Error',
                 'message' => 'Error'
             ),
-                400);
+            400);
         }
     }
 }

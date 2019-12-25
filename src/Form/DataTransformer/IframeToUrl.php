@@ -16,8 +16,8 @@ class IframeToUrl implements DataTransformerInterface
     public function reverseTransform($iframe)
     {
         $reg = '/(https:\/\/.*?)(?=")/';
-        if(preg_match($reg,$iframe)) {
-            preg_match($reg,$iframe,$matches);
+        if (preg_match($reg, $iframe)) {
+            preg_match($reg, $iframe, $matches);
             $url = $matches[0];
             return $url;
         }

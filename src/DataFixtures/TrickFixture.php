@@ -12,7 +12,7 @@ class TrickFixture extends AppFixtures implements DependentFixtureInterface
     public function loadData(ObjectManager $manager)
     {
 
-        $this->createMany(Trick::class,100,function (Trick $trick) {
+        $this->createMany(Trick::class, 100, function (Trick $trick) {
 
             $faker = \Faker\Factory::create('fr_FR');
 
@@ -38,3 +38,4 @@ class TrickFixture extends AppFixtures implements DependentFixtureInterface
         return [CategoryFixture::class];
     }
 }
+

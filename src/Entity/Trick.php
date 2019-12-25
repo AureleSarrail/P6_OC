@@ -102,6 +102,7 @@ class Trick
     {
         return $this->slug;
     }
+
     public function setSlug($slug)
     {
         $this->slug = $slug;
@@ -257,7 +258,8 @@ class Trick
         return $this;
     }
 
-    public function getCommentsMaxPage(){
+    public function getCommentsMaxPage()
+    {
         return $this->getComments()->count() / self::MAX_COMMENTS_PER_PAGE;
     }
 }
