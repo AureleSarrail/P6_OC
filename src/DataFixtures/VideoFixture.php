@@ -13,7 +13,7 @@ class VideoFixture extends AppFixtures implements DependentFixtureInterface
     public function loadData(ObjectManager $manager)
     {
 
-        $this->createMany(Video::class,30,function(Video $video) {
+        $this->createMany(Video::class, 30, function (Video $video) {
             $url = 'https://www.youtube.com/embed/1TJ08caetkw';
 
             $video->setUrl($url)

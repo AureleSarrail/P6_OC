@@ -2,9 +2,8 @@
 
 namespace App\DataFixtures;
 
-use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\Category;
+use Doctrine\Common\Persistence\ObjectManager;
 
 
 class CategoryFixture extends AppFixtures
@@ -13,7 +12,7 @@ class CategoryFixture extends AppFixtures
     {
 
 
-        $this->createMany(Category::class, 3, function (Category $category, $count) {
+        $this->createMany(Category::class, 3, function (Category $category) {
             $faker = \Faker\Factory::create('fr_FR');
 
             $category->setTitle($faker->sentence())

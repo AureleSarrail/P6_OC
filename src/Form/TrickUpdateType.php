@@ -23,11 +23,10 @@ class TrickUpdateType extends AbstractType
                 "label" => "Title",
                 'choice_label' => 'title',
                 "class" => Category::class,
-                "query_builder" => function(EntityRepository $repo){
-                    return $repo->createQueryBuilder("u")->orderBy('u.title','ASC');
+                "query_builder" => function (EntityRepository $repo) {
+                    return $repo->createQueryBuilder("u")->orderBy('u.title', 'ASC');
                 }
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

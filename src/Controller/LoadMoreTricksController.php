@@ -17,17 +17,21 @@ class LoadMoreTricksController extends AbstractController
      * @param TrickRepository $trickRepository
      * @param Request $request
      * @param SerializerInterface $serializer
-     * @param LoadMoreTricksRepresentation $loadMoreTricksRepresentation
+     * @param LoadMoreTricksRepresentation $representation
      * @return JsonResponse
      */
-    public function index(TrickRepository $trickRepository, Request $request, SerializerInterface $serializer, LoadMoreTricksRepresentation $loadMoreTricksRepresentation)
-    {
+    public function index(
+        TrickRepository $trickRepository,
+        Request $request,
+        SerializerInterface $serializer,
+        LoadMoreTricksRepresentation $representation
+    ) {
         if ($request->isXmlHttpRequest()) {
             $page = $request->request->get('page');
 
-            $tricks = $trickRepository->TricksForLoadMore($page);
+            $tricks = $trickRepository->tricksForLoadMore($page);
 
-            $represent = $loadMoreTricksRepresentation($tricks);
+            $represent = $representation($tricks);
 
             $nbPage = $trickRepository->countMaxPage();
 
@@ -37,8 +41,9 @@ class LoadMoreTricksController extends AbstractController
         } else {
             return new JsonResponse(array(
                 'status' => 'Error',
-                'message' => 'Error'),
-                400);
+                'message' => 'Error'
+            ),
+            400);
         }
     }
 }

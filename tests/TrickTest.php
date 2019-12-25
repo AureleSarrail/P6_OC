@@ -17,6 +17,12 @@ class TrickTest extends TestCase
         $test = $trick->getName();
 
         $this->assertEquals('toto', $test);
+
+        $trick->setname('tata');
+
+        $test = $trick->getName();
+
+        $this->assertEquals('tata', $test);
     }
 
     public function testTrickGetSlug()

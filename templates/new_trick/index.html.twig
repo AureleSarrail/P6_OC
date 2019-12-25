@@ -5,37 +5,40 @@
 {% block body %}
 
     <div class="row">
-        <div class="col-lg-12">
-            <div class="col-lg-6 offset-lg-3">
+        <div class="col-lg-6 offset-lg-3 text-center">
 
+            <div class="info">
                 <br>
-                {{ form_start(trickForm) }}
-
-                <br>
-
-                {{ form_widget(trickForm.name, {'attr': {'placeholder': 'Le nom de la trick'}}) }}
-
-                <br>
-
-                {{ form_widget(trickForm.description, {'attr': {'placeholder': 'La description de la trick'}}) }}
-
-                <br>
-
-                {{ form_widget(trickForm.category) }}
-
-                <br>
-
-                <div class="tags" data-prototype="{{ form_widget(trickForm.images.vars.prototype)|e('html_attr') }}">
-                    ...
-                </div>
-
-                <div class="col-lg-2 offset-lg-5">
-                    <button class="btn btn-primary" type="submit">Créer la trick</button>
-                </div>
-
-                {{ form_end(trickForm) }}
-
+                <h1>Création d'une Nouvelle Trick</h1>
             </div>
+
+            <br>
+            {{ form_start(trickForm) }}
+
+            <br>
+
+            {{ form_widget(trickForm.name, {'attr': {'placeholder': 'Le nom de la trick'}}) }}
+
+            <br>
+
+            {{ form_widget(trickForm.description, {'attr': {'placeholder': 'La description de la trick'}}) }}
+
+            <br>
+
+            {{ form_widget(trickForm.category) }}
+
+            <br>
+
+            {{ form_widget(trickForm.images,{'attr':{'class':'tags'}}) }}
+            <br>
+
+
+            <div class="col-lg-3 offset-lg-5">
+                <button class="btn btn-primary" type="submit">Créer la trick</button>
+            </div>
+
+            {{ form_end(trickForm) }}
+
         </div>
     </div>
 

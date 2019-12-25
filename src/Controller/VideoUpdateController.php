@@ -29,8 +29,7 @@ class VideoUpdateController extends AbstractController
         $addVideoForm->handleRequest($request);
 
         if ($addVideoForm->isSubmitted() && $addVideoForm->isValid()) {
-
-            $trick = $service->updateVideo($addVideoForm->getData(),$video);
+            $trick = $service->updateVideo($addVideoForm->getData(), $video);
 
             $this->addFlash('success', 'Vidéo bien ajoutée');
 
@@ -40,7 +39,8 @@ class VideoUpdateController extends AbstractController
             ]);
         }
 
-        return $this->render('video_update/index.html.twig', ['addVideo' => $addVideoForm->createView(),
+        return $this->render('video_update/index.html.twig', [
+            'addVideo' => $addVideoForm->createView(),
             'video' => $video
         ]);
     }

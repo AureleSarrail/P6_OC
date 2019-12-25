@@ -58,7 +58,7 @@ class TrickRepository extends ServiceEntityRepository
         return $req = $this->find($id);
     }
 
-    public function TricksForLoadMore(int $page)
+    public function tricksForLoadMore(int $page)
     {
         $req = $this->createQueryBuilder('p')
             ->setMaxResults(self::NB_PRICK_PER_PAGE)
@@ -74,15 +74,14 @@ class TrickRepository extends ServiceEntityRepository
         $req = $this->findAll();
         $count = count($req);
 
-        $pages = $count/self::NB_PRICK_PER_PAGE;
+        $pages = $count / self::NB_PRICK_PER_PAGE;
 
         return $pages;
     }
 
-    public function save(Trick $trick){
+    public function save(Trick $trick)
+    {
         $this->_em->persist($trick);
         $this->_em->flush();
     }
-
-
 }

@@ -20,8 +20,12 @@ class LoadMoreCommentController extends AbstractController
      * @param SerializerInterface $serializer
      * @return JsonResponse
      */
-    public function index(Trick $trick, CommentRepository $repository, Request $request, SerializerInterface $serializer)
-    {
+    public function index(
+        Trick $trick,
+        CommentRepository $repository,
+        Request $request,
+        SerializerInterface $serializer
+    ) {
         if ($request->isXmlHttpRequest()) {
             $page = $request->query->get('page', 1);
 
@@ -31,6 +35,6 @@ class LoadMoreCommentController extends AbstractController
 
             return new JsonResponse($json);
         }
-
     }
 }
+

@@ -20,9 +20,9 @@ class VideoIframeValidator extends ConstraintValidator
             return false;
         }
 
-        if (preg_match('/(http(s):\/\/www.youtube.com.*?)/',$value)
-            or preg_match('/(http(s):\/\/www.dailymotion.com.*?)/',$value)
-            or preg_match('/(http(s):\/\/www.vimeo.com.*?)/',$value)
+        if (preg_match('/(https:\/\/www.youtube.com.*?)/', $value)
+            or preg_match('/(https:\/\/www.dailymotion.com.*?)/', $value)
+            or preg_match('/(https:\/\/www.vimeo.com.*?)/', $value)
         ) {
             return true;
         }

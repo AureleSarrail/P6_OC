@@ -18,22 +18,22 @@ class UploaderHelper
     public function uploadImage(File $file, ?string $oldFilename = null): string
     {
         $destination = $this->uploadPath;
-        if($file instanceof UploadedFile) {
+        if ($file instanceof UploadedFile) {
             $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
-        }
-        else{
+        } else {
             $originalFilename = $file->getFilename();
         }
 
-        $newFilename = Urlizer::urlize(pathinfo($originalFilename, PATHINFO_FILENAME)).'-'.uniqid().'.'.$file->guessExtension();
+        $newFilename = Urlizer::urlize(pathinfo($originalFilename,
+                PATHINFO_FILENAME)) . '-' . uniqid() . '.' . $file->guessExtension();
 
         $file->move(
             $destination,
             $newFilename
         );
 
-        if($oldFilename){
-            @unlink($this->uploadPath.'/'.$oldFilename);
+        if ($oldFilename) {
+            @unlink($this->uploadPath . '/' . $oldFilename);
         }
 
         return $newFilename;
@@ -44,6 +44,6 @@ class UploaderHelper
      */
     public function deleteImage($oldFilename)
     {
-        @unlink($this->uploadPath.'/'.$oldFilename);
+        @unlink($this->uploadPath . '/' . $oldFilename);
     }
 }

@@ -62,11 +62,12 @@ body
     height: 95%;
 }
 
-#infoTrick
+.infoTrick
 {
     border: 1px solid black;
     border-radius: 15px;
     background-color: lightgrey;
+    height: 100%;
 }
 
 #oneTrickName
@@ -109,4 +110,9 @@ hr
 {
     color: aliceblue;
 }
+
+/*.row*/
+/*{*/
+/*    margin: auto;*/
+/*}*/
 

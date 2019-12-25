@@ -3,7 +3,6 @@
 
 namespace App\Service;
 
-
 use App\Entity\Trick;
 use Symfony\Component\Asset\Packages;
 
@@ -38,7 +37,6 @@ class LoadMoreTricksRepresentation
                     'slug' => $trick->getSlug(),
                     'image' => $this->package->getUrl('uploads/' . $trick->getImages()->first()->getUrl())
                 );
-
             } else {
                 $images = [];
                 $image = $this->package->getUrl('images/HomePic.jpg');
@@ -52,6 +50,5 @@ class LoadMoreTricksRepresentation
         }
 
         return $represent;
-
     }
 }

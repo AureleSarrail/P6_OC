@@ -32,10 +32,9 @@ class UserRepository extends ServiceEntityRepository
             ->getQuery();
 
         return $req->getOneOrNullResult();
-
     }
 
-    public function findUserByResetToken ($token)
+    public function findUserByResetToken($token)
     {
         $req = $this->createQueryBuilder('u')
             ->where('u.resetToken = :value')

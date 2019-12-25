@@ -6,6 +6,7 @@
 
 
             <div class="row">
+
                 {% for image in trick.images %}
 
                     {% if loop.first %}
@@ -22,22 +23,27 @@
                                                 src="{{ asset('Images/Trash.png') }}" alt=""></a>
                                 </div>
                             {% endif %}
+
+                            <div class="info text-center">
+                                <h1 class="col-12">Mise à jour de la Trick</h1>
+                            </div>
                         </div>
+
 
                     {% endif %}
 
-                        <div class="col-lg-3 position-relative">
-                            <img src="{{ asset('uploads/' ~ image.url) }}" alt="" class="col-lg-12"
-                                     id="OneTrickPics">
-                            <div id="userUpdateDeleteBlock">
-                                <a href="{{ path('image_update', {'id': image.id}) }}">
-                                    <img src="{{ asset('Images/pencil.png') }}" alt="">
-                                </a>
-                                <a href="{{ path('image_remove', {'id': image.id}) }}">
-                                    <img src="{{ asset('Images/Trash.png') }}" alt="">
-                                </a>
-                            </div>
+                    <div class="col-lg-3 position-relative">
+                        <img src="{{ asset('uploads/' ~ image.url) }}" alt="" class="col-lg-12"
+                             id="OneTrickPics">
+                        <div id="userUpdateDeleteBlock">
+                            <a href="{{ path('image_update', {'id': image.id}) }}">
+                                <img src="{{ asset('Images/pencil.png') }}" alt="">
+                            </a>
+                            <a href="{{ path('image_remove', {'id': image.id}) }}">
+                                <img src="{{ asset('Images/Trash.png') }}" alt="">
+                            </a>
                         </div>
+                    </div>
 
                 {% else %}
                     <div class="position-relative col-12">

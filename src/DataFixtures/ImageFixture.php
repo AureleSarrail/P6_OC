@@ -25,8 +25,7 @@ class ImageFixture extends AppFixtures implements DependentFixtureInterface
      */
     public function loadData(ObjectManager $manager)
     {
-
-        $this->createMany(Image::class,250, function(Image $image) {
+        $this->createMany(Image::class, 250, function (Image $image) {
             $faker = \Faker\Factory::create('fr_FR');
 
             $url = array(
@@ -38,11 +37,11 @@ class ImageFixture extends AppFixtures implements DependentFixtureInterface
                 'snow6.jpg'
             );
 
-            $file = $url[rand(0,5)];
+            $file = $url[rand(0, 5)];
 
             $fs = new Filesystem();
-            $targetpath = sys_get_temp_dir().'\\'.$file;
-            $fs->copy('C:\wamp64\www\P6_OC\public\uploads\\'.$file,$targetpath,true);
+            $targetpath = sys_get_temp_dir() . '\\' . $file;
+            $fs->copy('C:\wamp64\www\P6_OC\public\uploads\\' . $file, $targetpath, true);
 
 
             $newFilename = $this->uploadHelper->uploadImage(new File($targetpath));

@@ -3,7 +3,6 @@
 
 namespace App\Service;
 
-
 use App\Entity\Trick;
 use App\Entity\Video;
 use Doctrine\ORM\EntityManagerInterface;
@@ -27,5 +26,4 @@ class AddOneVideoService
         $this->em->persist($video);
         $this->em->flush();
     }
-
 }

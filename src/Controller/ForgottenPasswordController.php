@@ -21,9 +21,11 @@ class ForgottenPasswordController extends AbstractController
      * @param UserRepository $userRepository
      * @return RedirectResponse|Response
      */
-    public function index(Request $request,
-                          UserManager $userManager,
-                          UserRepository $userRepository)
+    public function index(
+        Request $request,
+        UserManager $userManager,
+        UserRepository $userRepository
+    )
     {
 
         $userForm = $this->createForm(ForgottenPasswordType::class);
@@ -37,19 +39,15 @@ class ForgottenPasswordController extends AbstractController
 
                 $this->addFlash('success', 'Le mail a bien été envoyé.');
 
-
             } catch (NonUniqueResultException $e) {
                 $this->addFlash('danger', 'Cette adresse mail n\'existe pas !');
             }
 
-
             return $this->redirectToRoute('home');
-
         }
 
         return $this->render('forgotten_password/index.html.twig', [
             'form' => $userForm->createView()
         ]);
-
     }
 }

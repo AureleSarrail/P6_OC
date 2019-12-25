@@ -3,7 +3,6 @@
 
 namespace App\Service;
 
-
 use App\Entity\Trick;
 use App\Security\UploaderHelper;
 use Doctrine\ORM\EntityManagerInterface;
@@ -25,7 +24,7 @@ class NewTrickService
             throw new \InvalidArgumentException('Pas de nom de trick');
         }
 
-        if ($trick->getSlug() == null) {
+        if ($trick->getCategory() == null) {
             throw new \InvalidArgumentException('Pas de catégorie choisie');
         }
 
@@ -43,5 +42,4 @@ class NewTrickService
 
         return $trick;
     }
-
 }

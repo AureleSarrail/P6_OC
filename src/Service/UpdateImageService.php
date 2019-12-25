@@ -3,7 +3,6 @@
 
 namespace App\Service;
 
-
 use App\Entity\Image;
 use App\Security\UploaderHelper;
 use Doctrine\ORM\EntityManagerInterface;
@@ -19,15 +18,13 @@ class UpdateImageService
         $this->uploaderHelper = $uploaderHelper;
     }
 
-    public function updateImage($uploadedFile,Image $image)
+    public function updateImage($uploadedFile, Image $image)
     {
-        $newFilename = $this->uploaderHelper->uploadImage($uploadedFile,$image->getUrl());
-
+        $newFilename = $this->uploaderHelper->uploadImage($uploadedFile, $image->getUrl());
 
         $image->setUrl($newFilename);
 
         $this->em->persist($image);
         $this->em->flush();
     }
-
 }
