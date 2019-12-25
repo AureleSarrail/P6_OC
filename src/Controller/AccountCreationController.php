@@ -9,7 +9,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 class AccountCreationController extends AbstractController
 {
     /**
@@ -25,10 +24,9 @@ class AccountCreationController extends AbstractController
         $userForm->handleRequest($request);
 
         if ($userForm->isSubmitted() && $userForm->isValid()) {
-
             $data = $userForm->getData();
             //Création de l'Utilisateur
-            $user = $createNewUser->newUser($data['username'],$data['mail'],$data['password']);
+            $user = $createNewUser->newUser($data);
 
             if ($user) {
                 $this->addFlash('success', 'Votre compte a été créé avec succés');

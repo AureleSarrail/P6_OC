@@ -64,17 +64,9 @@ class NewTrickServiceTest extends TestCase
             ->setCreatedAt(new \DateTime())
             ->setSlug('toto');
 
-        $trick3 = new Trick();
-        $trick3->setname('toto')
-            ->setDescription('toto')
-            ->setCategory(new Category())
-            ->setCreatedAt(new \DateTime())
-            ->setSlug('');
-
         return [
             [$trick],
-            [$trick2],
-            [$trick3]
+            [$trick2]
         ];
     }
 

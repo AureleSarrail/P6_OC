@@ -3,7 +3,6 @@
 
 namespace App\Service;
 
-
 use App\Entity\Video;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -27,5 +26,4 @@ class UpdateVideoService
 
         return $trick;
     }
-
 }

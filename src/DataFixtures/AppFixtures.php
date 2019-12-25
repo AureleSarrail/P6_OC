@@ -54,6 +54,5 @@ abstract class AppFixtures extends Fixture
         $randomReferenceKey = $this->faker->randomElement($this->referencesIndex[$className]);
         return $this->getReference($randomReferenceKey);
     }
-
 }
 

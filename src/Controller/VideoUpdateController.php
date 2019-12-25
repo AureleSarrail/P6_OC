@@ -29,7 +29,6 @@ class VideoUpdateController extends AbstractController
         $addVideoForm->handleRequest($request);
 
         if ($addVideoForm->isSubmitted() && $addVideoForm->isValid()) {
-
             $trick = $service->updateVideo($addVideoForm->getData(),$video);
 
             $this->addFlash('success', 'Vidéo bien ajoutée');

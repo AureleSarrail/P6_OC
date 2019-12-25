@@ -3,7 +3,6 @@
 
 namespace App\Service;
 
-
 use App\Entity\Image;
 use App\Entity\Trick;
 use App\Security\UploaderHelper;
@@ -34,5 +33,4 @@ class DeleteImageService
 
         return $trick;
     }
-
 }

@@ -3,7 +3,6 @@
 
 namespace App\Manager;
 
-
 use App\Entity\User;
 use App\Service\Mailer;
 use Doctrine\ORM\EntityManagerInterface;
@@ -24,12 +23,11 @@ class UserManager
      */
     private $mailer;
 
-    public function __construct(TokenGeneratorInterface $tokenGenerator,
-                                EntityManagerInterface $entityManager,
-                                Mailer $mailer
-
-    )
-    {
+    public function __construct(
+        TokenGeneratorInterface $tokenGenerator,
+        EntityManagerInterface $entityManager,
+        Mailer $mailer
+    ) {
         $this->tokenGenerator = $tokenGenerator;
         $this->entityManager = $entityManager;
         $this->mailer = $mailer;

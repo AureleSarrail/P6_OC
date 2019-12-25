@@ -3,7 +3,6 @@
 
 namespace App\Service;
 
-
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -20,22 +19,18 @@ class CreateNewUser
         $this->encoder = $encoder;
     }
 
-    public function newUser(string $username, string $mail, string  $password)
+    public function newUser(User $user)
     {
 
-        if(strlen($username) < 3){
+        if (strlen($user->getUsername()) < 3) {
             throw new \InvalidArgumentException("Le username doit faire plus de 3 caractères");
         }
 
-        $user = new User();
-        $user->setUsername($username)
-            ->setMail($mail)
-            ->setPassword($this->encoder->encodePassword($user, $password));
+        $user->setPassword($this->encoder->encodePassword($user, $user->getPassword()));
 
         $this->em->persist($user);
         $this->em->flush();
 
         return $user;
     }
-
 }

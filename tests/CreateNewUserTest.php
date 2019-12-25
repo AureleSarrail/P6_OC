@@ -30,16 +30,24 @@ class CreateNewUserTest extends TestCase
 
     public function userProviderOk()
     {
+        $user = new User();
+        $user->setUsername('toto')
+            ->setMail('toto@toto.fr')
+            ->setPassword('toto');
         return [
-            ['toto', 'toto@toto.fr', 'toto']
+            [$user]
         ];
     }
 
 
     public function userProviderNotOk()
     {
+        $user = new User();
+        $user->setUsername('')
+            ->setMail('toto@toto.fr')
+            ->setPassword('toto');
         return [
-            ['', 'toto@toto.fr', 'toto']
+            [$user]
         ];
     }
 
@@ -47,23 +55,23 @@ class CreateNewUserTest extends TestCase
     /**
      * @dataProvider userProviderOk
      */
-    public function testCreateNewUserOK($username, $mail, $password)
+    public function testCreateNewUserOK(User $user)
     {
-        $user = $this->createNewUser->newUser($username, $mail, $password);
+        $test = $this->createNewUser->newUser($user);
 
-        $this->assertInstanceOf(User::class, $user);
-        $this->assertEquals($user->getUsername(), $username);
+        $this->assertInstanceOf(User::class, $test);
+        $this->assertEquals($test->getUsername(), $user->getUsername());
     }
 
 
     /**
      * @dataProvider userProviderNotOk
      */
-    public function testCreateNewUserNotOK($username, $mail, $password)
+    public function testCreateNewUserNotOK(User $user)
     {
         $this->expectException(\InvalidArgumentException::class);
 
-        $this->createNewUser->newUser($username, $mail, $password);
+        $this->createNewUser->newUser($user);
 
     }
 }

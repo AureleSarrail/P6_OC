@@ -10,7 +10,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 class OneTrickPageController extends AbstractController
 {
@@ -30,8 +29,10 @@ class OneTrickPageController extends AbstractController
         $commentPageMax = $trick->getCommentsMaxPage();
 
         if ($commentForm->isSubmitted() && ($commentForm->isValid())) {
-
-            $service->addComment($commentForm->getData(), $trick);
+            if ($this->getUser()) {
+                $user = $this->getUser();
+                $service->addComment($commentForm->getData(), $trick, $user);
+            }
 
             return $this->redirectToRoute('show_one_trick', ['slug' => $trick->getSlug()]);
         }

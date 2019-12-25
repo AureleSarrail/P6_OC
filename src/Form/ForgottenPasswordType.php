@@ -13,12 +13,10 @@ class ForgottenPasswordType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('mail', EmailType::class,[
+            ->add('mail', EmailType::class, [
                 'constraints' => [
                     new Email()
                 ]
-            ])
-        ;
+            ]);
     }
-
 }

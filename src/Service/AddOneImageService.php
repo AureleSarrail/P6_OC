@@ -3,7 +3,6 @@
 
 namespace App\Service;
 
-
 use App\Entity\Image;
 use App\Entity\Trick;
 use App\Security\UploaderHelper;
@@ -24,7 +23,7 @@ class AddOneImageService
      * @param $image
      * @param $trick
      */
-    public function addOneImage(Image $image,Trick $trick)
+    public function addOneImage(Image $image, Trick $trick)
     {
         $newFilename = $this->uploaderHelper->uploadImage($image->getFile());
 
@@ -34,5 +33,4 @@ class AddOneImageService
         $this->em->persist($image);
         $this->em->flush();
     }
-
 }

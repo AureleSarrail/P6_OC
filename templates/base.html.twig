@@ -57,7 +57,9 @@
         </div>
     {% endfor %}
 {% endfor %}
-{% block body %}{% endblock %}
+<div class="container-fluid">
+    {% block body %}{% endblock %}
+</div>
 {% block javascripts %}
 
     <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>

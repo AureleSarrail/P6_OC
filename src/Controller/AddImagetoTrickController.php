@@ -29,7 +29,6 @@ class AddImagetoTrickController extends AbstractController
         $addImage->handleRequest($request);
 
         if ($addImage->isSubmitted() && $addImage->isValid()) {
-
             $service->addOneImage($addImage->getData(), $trick);
 
             $this->addFlash('success', 'Image bien ajoutée');

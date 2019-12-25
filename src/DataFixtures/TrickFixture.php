@@ -25,7 +25,6 @@ class TrickFixture extends AppFixtures implements DependentFixtureInterface
         });
 
         $manager->flush();
-
     }
 
     /**

@@ -24,12 +24,13 @@ class ResetPasswordController extends AbstractController
      * @param EntityManagerInterface $em
      * @return RedirectResponse|Response
      */
-    public function index($token, UserRepository $userRepository,
-                          Request $request,
-                          UserPasswordEncoderInterface $encoder,
-                          EntityManagerInterface $em)
-    {
-
+    public function index(
+        $token,
+        UserRepository $userRepository,
+        Request $request,
+        UserPasswordEncoderInterface $encoder,
+        EntityManagerInterface $em
+    ) {
         $user = $userRepository->findUserByResetToken($token);
 
         if ($user === null) {

@@ -3,9 +3,9 @@
 
 namespace App\Service;
 
-
 use App\Entity\Comment;
 use App\Entity\Trick;
+use App\Entity\User;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -20,14 +20,13 @@ class AddCommentService
         $this->userRepo = $userRepo;
     }
 
-    public function addComment(Comment $comment, Trick $trick)
+    public function addComment(Comment $comment, Trick $trick, User $user)
     {
         $comment->setTrick($trick)
             ->setCreatedAt(new \DateTime())
-            ->setUser($this->userRepo->find(rand(1, 5)));
+            ->setUser($user);
 
         $this->em->persist($comment);
         $this->em->flush();
     }
-
 }

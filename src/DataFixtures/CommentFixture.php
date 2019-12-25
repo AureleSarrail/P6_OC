@@ -13,7 +13,7 @@ class CommentFixture extends AppFixtures implements DependentFixtureInterface
 {
     public function loadData(ObjectManager $manager)
     {
-        $this->createMany(Comment::class,2500,function(Comment $comment) {
+        $this->createMany(Comment::class, 2500, function (Comment $comment) {
 
             $faker = \Faker\Factory::create('fr_FR');
 
@@ -21,7 +21,6 @@ class CommentFixture extends AppFixtures implements DependentFixtureInterface
                 ->setContent($faker->sentence())
                 ->setCreatedAt($faker->dateTimeThisMonth())
                 ->setTrick($this->getRandomReference(Trick::class));
-
         });
 
         $manager->flush();
@@ -31,6 +30,4 @@ class CommentFixture extends AppFixtures implements DependentFixtureInterface
     {
         return [TrickFixture::class];
     }
-
-
 }

@@ -2,9 +2,8 @@
 
 namespace App\DataFixtures;
 
-use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\Category;
+use Doctrine\Common\Persistence\ObjectManager;
 
 
 class CategoryFixture extends AppFixtures
