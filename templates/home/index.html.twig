@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}SnowTricks{% endblock %}
 
 {% block body %}
     <img src="{{ asset('Images/HomePic.jpg') }}" alt="" id="homePic">
@@ -8,6 +8,12 @@
     <a href="#Tricks_Block">
         <img src="{{ asset('Images/ancre.png') }}" alt="" id="anchor">
     </a>
+
+    <div class="info text-center">
+        <h1>Bienvenue sur le Site de SnowTricks</h1>
+        <p>Cet espace communautaire vous permettra de partager votre passion du Snowboard</p>
+        <p>N'hésitez pas à créer un compte et à créer votre propre Trick !</p>
+    </div>
 
     <div id="Tricks_Block" class="row">
         {% for trick in tricks %}

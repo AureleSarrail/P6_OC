@@ -1,12 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AccountCreationController!{% endblock %}
+{% block title %}Création de compte{% endblock %}
 
 {% block body %}
 
     <div class="col-lg-6 offset-lg-3 text-center">
 
-        <h1>Créez votre compte</h1>
+        <div class="info">
+            <h1>Créez votre compte</h1>
+            <p>Ici vous pourrez créer un compte sur SnowTricks.</p>
+            <p>Il vous permettra de créer, modifier ou supprimer les figures.</p>
+        </div>
 
         {{ form_start(userForm) }}
 
@@ -14,15 +18,13 @@
 
         {{ form_widget(userForm.username, {'attr': {'placeholder': 'Votre Pseudo'}}) }}
 
-        {{ form_label(userForm.username, ' ') }}
+        {{ form_label(userForm.mail, ' ') }}
 
         {{ form_widget(userForm.mail, {'attr': {'placeholder': 'Votre Email'}}) }}
 
-        {{ form_label(userForm.username, ' ') }}
+        {{ form_label(userForm.password, ' ') }}
 
         {{ form_widget(userForm.password) }}
-
-        {{ form_label(userForm.username, ' ') }}
 
 {#        {{ form_widget(userForm.controlPass, {'attr': {'placeholder': 'Retapez votre mot de passe'}}) }}#}
 

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AddVideotoTrickController!{% endblock %}
+{% block title %}Ajouter une vidéo{% endblock %}
 
 {% block body %}
 
@@ -19,7 +19,9 @@
 
             {{ form_start(addVideo) }}
 
-            {{ form_widget(addVideo) }}
+            {{ form_label(addVideo.url, ' ') }}
+
+            {{ form_widget(addVideo.url, {'attr': {'placeholder': 'Le lien d\'intégration de la vidéo'}}) }}
 
             <input type="submit" value="Envoyer la Vidéo" class="btn btn-primary">
 

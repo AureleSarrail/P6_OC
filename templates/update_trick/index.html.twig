@@ -92,24 +92,26 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-1"></div>
-                <div class="col-lg-10 text-center">
-                    <p>{{ trick.description }}</p>
+                <div class="col-12 text-center">
+                    <div class="info">
+                        <br>
+                        <p>{{ trick.description }}</p>
+                        <br>
+                    </div>
                 </div>
-                <div class="col-lg-1"></div>
             </div>
 
             <div class="row">
                 <div class="col-lg-3"></div>
-                <div class="col-lg-6 row">
+                <div class="col-lg-6 row align-items-center">
                     <div class="col-lg-4 text-center">
-                        <p id="infoTrick">Créé le {{ trick.createdAt | date('d/m/Y') }}</p>
+                        <p class="infoTrick">Créé le {{ trick.createdAt | date('d/m/Y') }}</p>
                     </div>
                     <div class="col-lg-4 text-center">
-                        <p id="infoTrick">Catégorie : {{ trick.category.title }}</p>
+                        <p class="infoTrick">Catégorie : {{ trick.category.title }}</p>
                     </div>
                     <div class="col-lg-4 text-center">
-                        <p id="infoTrick">Mis à jour le {{ trick.updatedAt | date('d/m/Y') }}</p>
+                        <p class="infoTrick">Mis à jour le {{ trick.updatedAt | date('d/m/Y') }}</p>
                     </div>
                 </div>
                 <div class="col-lg-3"></div>

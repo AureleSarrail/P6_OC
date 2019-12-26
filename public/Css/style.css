@@ -72,9 +72,10 @@ body
 
 #oneTrickName
 {
-    color: white;
-    text-effect: engrave;
+    color: black;
+    /*text-effect: engrave;*/
     font-weight: bold;
+    font-size: 1.8em;
 }
 
 hr
@@ -111,8 +112,7 @@ hr
     color: aliceblue;
 }
 
-/*.row*/
-/*{*/
-/*    margin: auto;*/
-/*}*/
-
+.info li
+{
+    text-decoration: none;
+}
