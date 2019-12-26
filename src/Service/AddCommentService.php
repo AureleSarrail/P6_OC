@@ -23,7 +23,7 @@ class AddCommentService
     public function addComment(Comment $comment, Trick $trick, User $user)
     {
         $comment->setTrick($trick)
-            ->setCreatedAt(new \DateTime())
+            ->setCreatedAt(new \DateTime('now'))
             ->setUser($user);
 
         $this->em->persist($comment);

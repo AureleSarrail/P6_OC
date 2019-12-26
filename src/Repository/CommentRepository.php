@@ -29,7 +29,7 @@ class CommentRepository extends ServiceEntityRepository
             ->where('p.trick = :trick')
             ->setMaxResults(self::NB_COMMENT_MAX)
             ->setFirstResult(($page - 1) * self::NB_COMMENT_MAX)
-            ->orderBy('p.id', 'DESC')
+            ->orderBy('p.createdAt', 'DESC')
             ->setParameter('trick', $trick)
             ->getQuery();
 
